@@ -1,43 +1,46 @@
 ﻿@page
 @model FarmSquare.Pages.Supplier.Supplier
 @{
+
+    Layout = "_Layout";
 }
 
 <div class="container  d-flex align-items-center justify-content-center vh-100 ">
-    <div class="w-50  border border-2 p-4  rounded-3">
+    <div class="w-50 border border-2 p-4  rounded-3">
         <h2>Create Account</h2>
-        <form>
+        <form method="post">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label asp-for="Sup.Name" class="form-label">Name</label>
+                <input asp-for="Sup.Name" class="form-control">
+                <span asp-validation-for="Sup.Name"></span>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label asp-for="Sup.Email" class="form-label">Email address</label>
+                <input asp-for="Sup.Email" class="form-control">
+                <span asp-validation-for="Sup.Email"></span>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Phone</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label asp-for="Sup.PhoneNumber" class="form-label">Phone</label>
+                <input asp-for="Sup.PhoneNumber" class="form-control">
+                <span asp-validation-for="Sup.PhoneNumber"></span>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Location</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label asp-for="Sup.Password" class="form-label">Password</label>
+                <input asp-for="Sup.Password" class="form-control" type="password">
+                <span asp-validation-for="Sup.Password"></span>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label asp-for="Sup.ConfirmPassword" class="form-label">Confirm Password</label>
+                <input asp-for="Sup.ConfirmPassword" class="form-control" type="password">
+                <span asp-validation-for="Sup.ConfirmPassword"></span>
             </div>
             <div class="mb-3">
                 <p>
-                    <span> Already have an account?</span><a class="link-offset-2 link-underline link-underline-opacity-0 text-decoration-none" href="#">Sign in</a>
+                    <span> Already have an account?</span><a class="link-offset-2 link-underline link-underline-opacity-0 text-decoration-none" asp-page="SupLogin">Sign in</a>
                 </p>
             </div>
             <div class="mb-3">
-                <button type="submit" class="btn me out</label> btn-primary">Sign up</button>
+                <button type="submit" class="btn me out</label> btn-primary" asp-page-handler="Send">Sign up</button>
             </div>
         </form>
     </div>

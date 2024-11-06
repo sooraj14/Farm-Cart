@@ -1,0 +1,26 @@
+﻿@page
+@model FarmCart.Pages.Supplier.LoginModel
+@{
+    Layout = "_Layout";
+}
+<div class="container  d-flex align-items-center justify-content-center">
+    <div class="w-50  border border-2 p-4  rounded-3">
+        <h2>Login</h2>
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="User.Email" class="form-label">Email address</label>
+                <input type="email" asp-for="User.Email" class="form-control">
+                <span asp-validation-for="User.Email"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="User.Password" class="form-label">Password</label>
+                <input type="password" asp-for="User.Password" class="form-control">
+                <span asp-validation-for="User.Password"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn me out</label> btn-primary"  asp-page-handler="Send">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
