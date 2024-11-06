@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
 </head>
 <body>
+    
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">FarmSquare</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand" asp-area="" asp-page="/Index"></a>
+                <img src="~/farmsquare rmovebg.png" alt="Cart" class="navbar-logo" style=" max-width: 200px; height: auto; margin-left: 10px;">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
@@ -28,8 +30,35 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Supplier/Supplier">Supplier</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownCustomer" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Customer</a>
+                            <ul class="dropdown-menu shadow-sm border-0 rounded" aria-labelledby="dropdownCustomer">
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+                                {
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                }
+                                else
+                                {
+                                    <li><a class="dropdown-item" asp-page="/CustomerAccount/Register">Register</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="CustomerAccount" asp-action="Login">Login</a></li>
+                                }
+                            </ul>
+                        </li>
+                    </ul>
+
+                  
+                    <form id="searchForm" asp-controller="Products" asp-action="SearchProducts" method="post" class="d-flex mx-auto">
+                        <div class="input-group">
+                            <input id="searchString" type="text" class="form-control" placeholder="Search products" name="searchQuery" style="min-width: 500px;" />
+                            <button class="btn btn-primary" type="submit" id="searchBtn"><i class="fa fa-search"></i> Search</button>
+                        </div>
+                    </form>
+
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Customer/Customer">Customer</a>
+                            <a class="nav-link text-dark position-relative" asp-area="" asp-controller="Cart" asp-action="Index">
+                                <img src="~/buy.png" alt="Cart" style="width: 24px; height: 24px; margin-right: 5px;"> <i class="fa fa-shopping-cart"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -42,7 +71,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-black bg-success">
         <div class="container">
             &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
@@ -50,6 +79,8 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
