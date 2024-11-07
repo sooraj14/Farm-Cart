@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,32 +11,37 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index"></a>
-                  @* <img src="./Images/Logo.png" alt="Alternate Text" style="width: 150px; height: 70px;" /> *@
+                
+                <img src="~/Logo.png" alt="Alternate Text" style="width:200px; height:auto;"/>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;" />
+                <div class="navbar-collapse collapse d-sm-inline-flex ">
+                    <ul class="navbar-nav p-2">
+                        <li class="nav-item me-3">
+                            <a class="nav-link text-dark icon-link icon-link-hover text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        <li class="nav-item me-3">
+                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/Admin/ViewProductcshtml">Product</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Admin">Admin</a>
+                        <li class="nav-item me-3">
+                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/">View-Users</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Supplier/Supplier">Supplier</a>
+                        <li class="nav-item me-3">
+                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/Admin/ViewSuppliers">View-Suppliers</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Customer/Customer">Customer</a>
+
+                        <li class="nav-item me-3">
+                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/Customer/Customer">View-Orders</a>
                         </li>
                     </ul>
+                </div>
+
+                <div>
+                    <p class="mt-2">Admin-Dashboard</p>
                 </div>
             </div>
         </nav>
@@ -46,8 +52,8 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer class="border-top footer text-muted bg-success">
+        <div class="container text-black text-center">
             &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>

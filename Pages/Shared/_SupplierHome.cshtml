@@ -13,27 +13,25 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index"></a>
-                  @* <img src="./Images/Logo.png" alt="Alternate Text" style="width: 150px; height: 70px;" /> *@
+                <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;" />
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 d-flex align-items-center">
+                       
+                        @* <li class="nav-item">
+                            <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;"/>
+                        </li> *@
+                          <li class="nav-item">
+                              <a class="nav-link text-dark" asp-area="" asp-page="/Supplier/AddProduct">Add Products</a>
+                          </li>
                         <li class="nav-item">
-                            <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;" />
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Supplier/Products">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Admin">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Supplier/Supplier">Supplier</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Customer/Customer">Customer</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="">Logout</a>
                         </li>
                     </ul>
                 </div>
