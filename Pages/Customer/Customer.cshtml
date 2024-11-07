@@ -1,39 +1,51 @@
 ﻿@page
-@model FarmSquare.Pages.Customer.Customer
+@model FarmSquare.Pages.Customer.CustomerModel
 @{
 }
 
-<div class="container  d-flex align-items-center justify-content-center vh-100 ">
-    <div class="w-50 border border-2 p-4  rounded-3">
-        <h2>Create Account</h2>
-        <form>
+
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light">
+
+        <div class="text-center mb-4">
+            <img src="~/farmsquare rmovebg.png" alt="FarmSquare Logo" style="max-width: 150px; height: auto;">
+        </div>
+
+        <h2 class="text-center mb-4">Create Account</h2>
+
+        <form method="post">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Name</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="nameInput" class="form-label">Name</label>
+                <input type="text" class="form-control" id="nameInput" name="Customer.Name" placeholder="Enter your name" required>
             </div>
+
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="emailInput" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="emailInput" name="Customer.Email" placeholder="Enter your email" required>
             </div>
+
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Phone</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="phoneInput" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="phoneInput" name="Customer.PhoneNumber" placeholder="Enter your phone number" required>
             </div>
+
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="passwordInput" class="form-label">Password</label>
+                <input type="password" class="form-control" id="passwordInput" name="Customer.Password" placeholder="Create a password" required>
             </div>
+
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPasswordInput" name="Customer.ConfirmPassword" placeholder="Confirm your password" required>
             </div>
-            <div class="mb-3">
-                <p>
-                    <span> Already have an account?</span><a class="link-offset-2 link-underline link-underline-opacity-0 text-decoration-none" href="#">Sign in</a>
-                </p>
+
+            <div class="mb-3 text-center">
+                <span>Already have an account?</span>
+                <a href="/Customer/CustomerLogin" class="text-decoration-none ms-1">Sign in</a>
             </div>
-            <div class="mb-3">
-                <button type="submit" class="btn me out</label> btn-primary">Sign up</button>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
             </div>
         </form>
     </div>
