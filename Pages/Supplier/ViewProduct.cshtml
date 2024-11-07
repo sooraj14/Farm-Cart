@@ -1,0 +1,26 @@
+﻿@page
+@model FarmCart.Pages.Supplier.ViewProductModel
+@{
+}
+
+<div class="row">
+    <h1>Your Products:</h1>
+    <div class="d-flex flex-wrap col-lg-12">
+
+        @{
+            foreach (var ProductList in @Model.productlist)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Images/@ProductList.imagepath" class="card-img-top" alt="">
+                    <div class="card-body ">
+                        <p class="card-text">Product Name: @ProductList.product_name</p>
+                        <p class="card-text">Company: @ProductList.brand_name</p>
+                        <p class="card-text">Description: @ProductList.product_description</p>
+                        <p class="card-text">Price: @ProductList.product_price</p>
+                        <p class="card-text">Quantity: @ProductList.product_quantity</p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

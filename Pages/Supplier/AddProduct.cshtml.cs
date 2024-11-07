@@ -46,7 +46,7 @@ namespace FarmCart.Pages.Supplier
             };
             await _context.producttable.AddAsync(product);
             await _context.SaveChangesAsync();
-            return RedirectToPage("SupHome");
+            return RedirectToPage("ViewProduct");
         }
     }
 }
