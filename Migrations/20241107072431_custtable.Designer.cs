@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FarmCart.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241106060022_addtable")]
-    partial class addtable
+    [Migration("20241107072431_custtable")]
+    partial class custtable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,43 +41,43 @@ namespace FarmCart.Migrations
 
                     b.HasKey("cart_id");
 
-                    b.ToTable("carttable");
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.CustomerTable", b =>
                 {
-                    b.Property<int>("cust_id")
+                    b.Property<int>("CustId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("cust_id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustId"));
 
-                    b.Property<bool>("Is_Active")
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustPhone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("confirm_password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("CustId");
 
-                    b.Property<string>("cust_email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("cust_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("cust_password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("cust_phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("cust_id");
-
-                    b.ToTable("custtable");
+                    b.ToTable("CustomerTable");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.OrderItem", b =>
@@ -108,7 +108,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("item_id");
 
-                    b.ToTable("orderitemtable");
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.Orders", b =>
@@ -137,7 +137,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("ord_id");
 
-                    b.ToTable("ordertable");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.Product", b =>
@@ -178,7 +178,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("product_id");
 
-                    b.ToTable("producttable");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.SupplierTable", b =>
@@ -214,7 +214,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("sup_id");
 
-                    b.ToTable("suptable");
+                    b.ToTable("SupplierTable");
                 });
 #pragma warning restore 612, 618
         }

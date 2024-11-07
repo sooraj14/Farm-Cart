@@ -38,7 +38,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("cart_id");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.CustomerTable", b =>
@@ -74,7 +74,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("CustId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("CustomerTable");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.OrderItem", b =>
@@ -105,7 +105,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("item_id");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.Orders", b =>
@@ -175,7 +175,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("product_id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("FarmSquare.Data.Entity.SupplierTable", b =>
@@ -211,7 +211,7 @@ namespace FarmCart.Migrations
 
                     b.HasKey("sup_id");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("SupplierTable");
                 });
 #pragma warning restore 612, 618
         }

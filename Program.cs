@@ -11,11 +11,10 @@ namespace FarmCart
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-<<<<<<< HEAD
+
             builder.Services.AddSession();
            
-=======
->>>>>>> V0-LP
+
 
             // Configure database context with SQL Server
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -45,11 +44,10 @@ namespace FarmCart
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-<<<<<<< HEAD
-=======
+
 
             // Enable session middleware
->>>>>>> V0-LP
+
             app.UseSession();
 
             app.UseRouting();
