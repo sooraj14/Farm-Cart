@@ -14,7 +14,7 @@ namespace FarmSquare.Data.dbcontext
         public DbSet<Product> producttable { get; set; }
         public DbSet<Orders> ordertable { get; set; }
         public DbSet<OrderItem> orderitemtable { get; set; }
-
+          
         public DbSet<Cart> carttable { get; set; }
 
     }

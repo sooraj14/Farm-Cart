@@ -1,57 +1,58 @@
-﻿@page
-@model FarmSquare.Pages.Admin.Admin
-@{
-    Layout = null;
-}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FarmSquare</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
-</head>
-<body>
-        <div class="container d-flex align-items-center justify-content-center vh-100">
-    <div class="w-30 border border-2 p-4 border border-warning rounded-3">
-        <form method="post">
-           
+﻿ @page
+ @model FarmSquare.Pages.Admin.Admin
+ @{
+     Layout = null;
+ }
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>@ViewData["Title"] - FarmSquare</title>
+     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+     <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
+ </head>
+ <body>
+
+     <div class="text-center ">
+        <a asp-page="/Index" class="text-decoration-none">Home</a>
+     </div>
+         <div class="container d-flex align-items-center justify-content-center vh-100">
+     <div class="w-30 border border-2 p-4 border border-warning rounded-3">
+          <form method="post">
+      <div>
+                         <img src="~/Logo.png" alt="Alternate Text" style="width:200px; height:auto; margin-left:40px" />
+                 </div>
+
+                 <div class="mb-3 ">
+                 <label asp-for="adminclass.Adminemail" class="form-label ">Email address</label>
+                 <input asp-for="adminclass.Adminemail" class="form-control border border-dark " placeholder="swarup@gmail.com">
+                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+             </div>
+             <div class="mb-3">
+                 <label asp-for="adminclass.Adminpassowrd" class="form-label">Password</label>
+                 <input asp-for="adminclass.Adminpassowrd" class="form-control border border-dark " placeholder="swarup@123">
+             </div>
+             <div class="mb-3 form-check">
+                 <input type="checkbox" class="form-check-input border border-dark" id="exampleCheck1">
+                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
+             </div>
+             <button type="submit" class=" form-control border border-dark  btn btn-primary">Login</button>
+
+             <div class="mt-2">
+                 @{
 
 
-                <div>
-                        <img src="~/Logo.png" alt="Alternate Text" style="width:200px; height:auto; margin-left:40px" />
-                </div>
+                     if (TempData["messageLoginfailed"] != null)
+                     {
+                         <p class="text-center text-danger">Login Failed</p>
+                     }
 
-                <div class="mb-3 ">
-                <label asp-for="adminclass.Adminemail" class="form-label ">Email address</label>
-                <input asp-for="adminclass.Adminemail" class="form-control border border-dark " placeholder="swarup@gmail.com">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-                <label asp-for="adminclass.Adminpassowrd" class="form-label">Password</label>
-                <input asp-for="adminclass.Adminpassowrd" class="form-control border border-dark " placeholder="swarup@123">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input border border-dark" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Remember me</label>
-            </div>
-            <button type="submit" class=" form-control border border-dark  btn btn-primary">Login</button>
-
-            <div class="mt-2">
-                @{
-
-
-                    if (TempData["messageLoginfailed"] != null)
-                    {
-                        <p class="text-center text-danger">Login Failed</p>
-                    }
-
-                }
-            </div>
-        </form>
-</div>
-</div>
-</body>
-</html>
+                 }
+             </div>
+         </form>
+ </div>
+ </div>
+ </body>
+ </html>

@@ -20,7 +20,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex ">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav p-2">
                         <li class="nav-item me-3">
                             <a class="nav-link text-dark icon-link icon-link-hover text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
@@ -28,10 +28,14 @@
                             <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/Admin/ViewProductcshtml">Product</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/Supplier/Supplier">View-Users</a>
+                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/">View-Users</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/Customer/Customer">View-Suppliers</a>
+                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/Admin/ViewSuppliers">View-Suppliers</a>
+                        </li>
+
+                        <li class="nav-item me-3">
+                            <a class="nav-link text-dark icon-link icon-link-hover" asp-area="" asp-page="/Customer/Customer">View-Orders</a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +53,7 @@
     </div>
 
     <footer class="border-top footer text-muted bg-success">
-        <div class="container text-black">
+        <div class="container text-black text-center">
             &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
