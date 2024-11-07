@@ -4,6 +4,7 @@ namespace FarmCart.Pages.Model
 {
     public class SupplierSignup
     {
+        public int ID { get; set; }
         [Required(ErrorMessage = "Username Required")]
         public string Name { get; set; }
 

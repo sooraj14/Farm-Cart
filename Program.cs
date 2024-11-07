@@ -11,6 +11,7 @@ namespace FarmCart
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddSession();
            
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -32,7 +33,7 @@ namespace FarmCart
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseSession();
+            app.UseSession();
 
             app.UseRouting();
 
