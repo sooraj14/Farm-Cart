@@ -1,0 +1,28 @@
+﻿@page
+@model FarmCart.Pages.Customer.CustomerLoginModel
+
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light">
+        <div class="text-center mb-4">
+            <img src="~/farmsquare rmovebg.png" alt="FarmSquare Logo" style="max-width: 150px; height: auto;">
+        </div>
+
+        <form method="post">
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email</label>
+                <input type="email" class="form-control" id="emailInput" asp-for="Login.Email" placeholder="Enter your email" required>
+                <span asp-validation-for="Login.Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Password</label>
+                <input type="password" class="form-control" id="passwordInput" asp-for="Login.Password" placeholder="Enter your password" required>
+                <span asp-validation-for="Login.Password" class="text-danger"></span>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

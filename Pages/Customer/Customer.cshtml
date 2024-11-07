@@ -1,8 +1,9 @@
 ﻿@page
-@model FarmSquare.Pages.Customer.Customer
+@model FarmSquare.Pages.Customer.CustomerModel
 @{
 }
 
+<<<<<<< HEAD
 <div class="container  d-flex align-items-center justify-content-center vh-100 ">
     <div class="w-50 border border-2 p-4  rounded-3">
         <h2>Create Account</h2>
@@ -11,23 +12,59 @@
                 <label asp-for="Cust.Name" class="form-label">Name</label>
                 <input asp-for="Cust.Name" class="form-control">
                 <span asp-validation-for="Cust.Name"></span>
-            </div>
+=======
+
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light">
+
+        <div class="text-center mb-4">
+            <img src="~/farmsquare rmovebg.png" alt="FarmSquare Logo" style="max-width: 150px; height: auto;">
+        </div>
+
+        <h2 class="text-center mb-4">Create Account</h2>
+
+        <form method="post">
             <div class="mb-3">
+                <label for="nameInput" class="form-label">Name</label>
+                <input type="text" class="form-control" id="nameInput" name="Customer.Name" placeholder="Enter your name" required>
+>>>>>>> V0-LP
+            </div>
+
+            <div class="mb-3">
+<<<<<<< HEAD
                 <label asp-for="Cust.Email" class="form-label">Email address</label>
                 <input asp-for="Cust.Email" class="form-control">
                 <span asp-validation-for="Cust.Email"></span>
+=======
+                <label for="emailInput" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="emailInput" name="Customer.Email" placeholder="Enter your email" required>
+>>>>>>> V0-LP
             </div>
+
             <div class="mb-3">
+<<<<<<< HEAD
                 <label asp-for="Cust.PhoneNumber" class="form-label">Phone</label>
                 <input asp-for="Cust.PhoneNumber" class="form-control">
                 <span asp-validation-for="Cust.PhoneNumber"></span>
+=======
+                <label for="phoneInput" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="phoneInput" name="Customer.PhoneNumber" placeholder="Enter your phone number" required>
+>>>>>>> V0-LP
             </div>
+
             <div class="mb-3">
+<<<<<<< HEAD
                 <label asp-for="Cust.Password" class="form-label">Password</label>
                 <input asp-for="Cust.Password" class="form-control" type="password">
                 <span asp-validation-for="Cust.Password"></span>
+=======
+                <label for="passwordInput" class="form-label">Password</label>
+                <input type="password" class="form-control" id="passwordInput" name="Customer.Password" placeholder="Create a password" required>
+>>>>>>> V0-LP
             </div>
+
             <div class="mb-3">
+<<<<<<< HEAD
                 <label asp-for="Cust.ConfirmPassword" class="form-label">Confirm Password</label>
                 <input asp-for="Cust.ConfirmPassword" class="form-control" type="password">
                 <span asp-validation-for="Cust.ConfirmPassword"></span>
@@ -39,6 +76,19 @@
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn me out</label> btn-primary" asp-page-handler="Send">Sign up</button>
+=======
+                <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPasswordInput" name="Customer.ConfirmPassword" placeholder="Confirm your password" required>
+            </div>
+
+            <div class="mb-3 text-center">
+                <span>Already have an account?</span>
+                <a href="/Customer/CustomerLogin" class="text-decoration-none ms-1">Sign in</a>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+>>>>>>> V0-LP
             </div>
         </form>
     </div>

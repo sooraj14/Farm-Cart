@@ -9,17 +9,23 @@
     <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
 </head>
 <body>
+    
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index"></a>
+<<<<<<< HEAD
                   @* <img src="./Images/Logo.png" alt="Alternate Text" style="width: 150px; height: 70px;" /> *@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+=======
+                <img src="~/farmsquare rmovebg.png" alt="Cart" class="navbar-logo" style=" max-width: 200px; height: auto; margin-left: 10px;">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+>>>>>>> V0-LP
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
                             <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;" />
                         </li>
@@ -35,6 +41,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Customer/Customer">Customer</a>
                         </li>
+                        
+                    </ul>
+
+                  
+                    <form id="searchForm" asp-controller="Products" asp-action="SearchProducts" method="post" class="d-flex mx-auto">
+                        <div class="input-group">
+                            <input id="searchString" type="text" class="form-control" placeholder="Search products" name="searchQuery" style="min-width: 500px;" />
+                            <button class="btn btn-primary" type="submit" id="searchBtn"><i class="fa fa-search"></i> Search</button>
+                        </div>
+                    </form>
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark position-relative" asp-area="" asp-controller="Cart" asp-action="Index">
+                                <img src="~/buy.png" alt="Cart" style="width: 24px; height: 24px; margin-right: 5px;"> <i class="fa fa-shopping-cart"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -46,7 +69,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-black bg-success">
         <div class="container">
             &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
@@ -54,6 +77,8 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)

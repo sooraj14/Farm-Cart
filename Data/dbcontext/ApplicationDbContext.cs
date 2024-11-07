@@ -7,8 +7,9 @@ namespace FarmSquare.Data.dbcontext
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
-        { 
+        {
         }
+<<<<<<< HEAD
         public DbSet<CustomerTable> custtable { get; set; }
         public DbSet<SupplierTable> suptable { get; set; }
         public DbSet<Product> producttable { get; set; }
@@ -17,5 +18,13 @@ namespace FarmSquare.Data.dbcontext
           
         public DbSet<Cart> carttable { get; set; }
 
+=======
+        public DbSet<CustomerTable> Customers { get; set; }
+        public DbSet<SupplierTable> Suppliers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Orders> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+>>>>>>> V0-LP
     }
 }
