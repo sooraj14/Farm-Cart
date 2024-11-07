@@ -27,3 +27,8 @@ body {
     white-space: nowrap;
     line-height: 60px;
 }
+.icon-link-hover:hover {
+    color: #0056b3 !important; /* Custom color */
+    /*text-decoration: underline;*/ /* Underline on hover */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
