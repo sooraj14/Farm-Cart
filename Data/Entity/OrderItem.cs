@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FarmSquare.Data.Entity
+namespace FarmCart.Data.Entity
 {
     public class OrderItem
     {
@@ -13,5 +13,6 @@ namespace FarmSquare.Data.Entity
         public int product_quantity { get; set; }
 
         public bool Is_Available { get; set; }
+      
     }
 }

@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using FarmSquare.Data.dbcontext; 
+using FarmCart.Data.dbcontext; 
 using System.Linq;
 using System.Threading.Tasks;
 using FarmCart.Pages.ModelClass;
+using Microsoft.AspNetCore.Http;
 
 namespace FarmCart.Pages.Customer
 {
@@ -29,10 +30,11 @@ namespace FarmCart.Pages.Customer
             {
                 return Page();
             }
-
+         
             var user = _context.Customers
                 .FirstOrDefault(u => u.CustEmail == Login.Email && u.CustPassword == Login.Password);
 
+            HttpContext.Session.SetInt32("cust_id", user.CustId);
             if (user == null)
             {
                 TempData["ErrorMessage"] = "Invalid email or password.";

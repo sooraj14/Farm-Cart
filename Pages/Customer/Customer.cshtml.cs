@@ -1,11 +1,11 @@
 using FarmCart.Pages.Model;
-using FarmSquare.Data.dbcontext;
-using FarmSquare.Data.Entity;
+using FarmCart.Data.dbcontext;
+using FarmCart.Data.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 
-namespace FarmSquare.Pages.Customer
+namespace FarmCart.Pages.Customer
 {
     public class CustomerModel : PageModel
     {
@@ -46,7 +46,7 @@ namespace FarmSquare.Pages.Customer
 
             
             TempData["Message"] = "Customer registered successfully!";
-            return RedirectToPage("/Customer/CustomerLogin");
+            return RedirectToPage("/Customer/Customer");
         }
     }
 }

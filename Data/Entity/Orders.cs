@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FarmSquare.Data.Entity
+namespace FarmCart.Data.Entity
 {
     public class Orders
     {
@@ -11,6 +11,7 @@ namespace FarmSquare.Data.Entity
         public int total_amount { get; set; }
         public string ord_address { get; set; }
         public int cust_id { get; set; }
+        public string products { get; set; }
 
     }
 }

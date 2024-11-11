@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FarmSquare.Data.Entity
+namespace FarmCart.Data.Entity
 {
     public class Product
     {

@@ -1,0 +1,37 @@
+﻿@page
+@model FarmCart.Pages.OrderPlacedModel
+
+<h2>Order Confirmed!</h2>
+
+@if (Model.OrderDetails != null)
+{
+    <div class="order-summary">
+        <h4>Order ID: @Model.OrderDetails.ord_no</h4>
+        <p><strong>Order Date:</strong> @Model.OrderDetails.ord_date.ToString("MM/dd/yyyy")</p>
+        <p><strong>Shipping Address:</strong> @Model.OrderDetails.ord_address</p>
+        <p><strong>Total Amount:</strong> $@Model.OrderDetails.total_amount</p>
+    </div>
+
+    <h3>Order Items:</h3>
+    @if (Model.OrderItems != null && Model.OrderItems.Any())
+    {
+        @foreach (var item in Model.OrderItems)
+        {
+            <div class="order-item">
+                <p><strong>Quantity:</strong> @item.product_quantity</p>
+                <p><strong>Price:</strong> $@item.product_price</p>
+                <p><strong>Total:</strong> $@item.product_price * @item.product_quantity</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No items found in this order.</p>
+    }
+}
+else
+{
+    <p>Order details not found.</p>
+}
+
+<button class="btn btn-primary">Continue Shopping</button>
