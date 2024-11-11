@@ -2,9 +2,9 @@
 @model FarmCart.Pages.Customer.CustomerLoginModel
 
 <div class="container d-flex align-items-center justify-content-center vh-100">
-    <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light">
-        <div class="text-center mb-4">
-            <img src="~/farmsquare rmovebg.png" alt="FarmSquare Logo" style="max-width: 150px; height: auto;">
+    <div class="w-75 w-md-50 w-lg-25 border border-2 p-3 rounded-3 shadow bg-light" style="max-width: 400px;">
+        <div class="text-center mb-3">
+            <img src="~/farmsquare rmovebg.png" alt="FarmSquare Logo" class="img-fluid" style="max-width: 150px;">
         </div>
 
         <form method="post">
@@ -21,8 +21,22 @@
             </div>
 
             <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
+
+        <div class="text-center mt-3">
+            <p>Don't have an account? <a href="/Customer/Customer">Sign up here</a></p>
+        </div>
     </div>
 </div>
+
+<style>
+    .container {
+        max-width: 100%;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>

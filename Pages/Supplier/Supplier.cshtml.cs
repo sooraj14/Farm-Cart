@@ -1,10 +1,10 @@
+using FarmCart.Data.Entity;
 using FarmCart.Pages.Model;
-using FarmSquare.Data.dbcontext;
-using FarmSquare.Data.Entity;
+using FarmCart.Data.dbcontext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace FarmSquare.Pages.Supplier
+namespace FarmCart.Pages.Supplier
 {
     public class Supplier: PageModel
     {

@@ -1,0 +1,22 @@
+﻿@page
+@model FarmCart.Pages.ProductDetailsModel
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h2>@Model.Product.product_name</h2>
+
+<div class="container mt-5">
+    <div class="card border-0 shadow-sm rounded" style="max-width: 500px; margin: auto;">
+        <img src="~/Images/@Model.Product.imagepath" class="card-img-top" alt="@Model.Product.product_name">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Product.product_name</h5>
+            <p class="card-text"><strong>Brand:</strong> @Model.Product.brand_name</p>
+            <p class="card-text">@Model.Product.product_description</p>
+            <p class="card-price fw-bold">$@Model.Product.product_price</p>
+            <button class="btn btn-primary me-2">Add to Cart</button>
+            <button class="btn btn-success me-2">Buy Now</button>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,9 @@
 using FarmCart.Pages.ModelClass;
-using FarmSquare.Data.dbcontext;
+using FarmCart.Data.dbcontext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace FarmSquare.Pages.Admin
+namespace FarmCart.Pages.Admin
 {
     public class Admin : PageModel
     {

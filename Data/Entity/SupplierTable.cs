@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FarmSquare.Data.Entity
+namespace FarmCart.Data.Entity
 {
     public class SupplierTable
     {

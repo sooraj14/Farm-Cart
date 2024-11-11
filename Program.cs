@@ -1,4 +1,4 @@
-using FarmSquare.Data.dbcontext;
+using FarmCart.Data.dbcontext;
 using Microsoft.EntityFrameworkCore;
 
 namespace FarmCart

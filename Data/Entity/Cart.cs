@@ -9,7 +9,8 @@ namespace FarmCart.Data.Entity
         public int product_id { get; set; }
         public int cust_id { get; set; }
 
-
+        public int quantity { get; set; }
+      /*  public Product Product { get; set; }*/
 
     }
 }

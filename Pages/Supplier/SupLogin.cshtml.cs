@@ -1,5 +1,5 @@
 using FarmCart.Pages.Model;
-using FarmSquare.Data.dbcontext;
+using FarmCart.Data.dbcontext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

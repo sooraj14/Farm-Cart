@@ -1,0 +1,32 @@
+﻿@page
+@model FarmCart.Pages.Cart.customerCartDetailsModel
+@{
+}
+
+
+<form method="post">
+    <div class="container mt-5">
+        @{
+
+            foreach (var op in @Model.OrderProduct)
+            {
+
+
+                <div class="card border-0 shadow-sm rounded" style="max-width: 500px; margin: auto;">
+                    <img src="~/Images/@op.Product_image" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">@op.Product_name</h5>
+                        <p class="card-text"><strong>Price</strong> $@op.Product_price</p>
+                        <p class="card-text">@op.Product_description</p>
+                        <p class="card-price fw-bold">@op.Product_quantity</p>
+                        <p class="card-price fw-bold">@op.Product_id</p>
+                        
+                         <button class="btn btn-success me-2" formaction="/OrderPlaced">Place Order</button>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+
+</form>
