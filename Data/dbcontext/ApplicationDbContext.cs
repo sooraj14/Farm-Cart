@@ -19,7 +19,7 @@ namespace FarmSquare.Data.dbcontext
 
         public DbSet<CustomerTable> Customers { get; set; }
         public DbSet<SupplierTable> Suppliers { get; set; }
-        public DbSet<Product> Products { get; set; }
+       /* public DbSet<Product> Products { get; set; }*/
         public DbSet<Orders> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Cart> Carts { get; set; }

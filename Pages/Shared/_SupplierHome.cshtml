@@ -10,7 +10,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-0" style="background: linear-gradient(to left, rgba(0, 255, 127, 0.1), rgba(124, 252, 0, 0.9));"
+">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index"></a>
                 <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;" />
@@ -25,26 +26,26 @@
                             <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;"/>
                         </li> *@
                           <li class="nav-item">
-                              <a class="nav-link text-dark" asp-area="" asp-page="/Supplier/AddProduct">Add Products</a>
+                              <a class="nav-link text-dark" asp-area="" asp-page="/Supplier/SupHome">Home</a>
                           </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Supplier/ViewProduct">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="">Logout</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Logout</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+   
+        <main role="main" class="pb-0">
             @RenderBody()
         </main>
-    </div>
+    
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" >
         <div class="container">
             &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>

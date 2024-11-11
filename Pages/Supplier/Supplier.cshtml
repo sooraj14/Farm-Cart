@@ -6,9 +6,9 @@
 }
 
 <div class="container  d-flex align-items-center justify-content-center vh-100 ">
-    <div class="w-50 border border-2 p-4  rounded-3">
+    <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light">
         <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;margin-left:12rem;" />
-        <h2>Create Account</h2>
+         @* <h2>Create Account</h2> *@
         <form method="post">
             <div class="mb-3">
                 <label asp-for="Sup.Name" class="form-label">Name</label>
@@ -35,13 +35,9 @@
                 <input asp-for="Sup.ConfirmPassword" class="form-control" type="password">
                 <span asp-validation-for="Sup.ConfirmPassword"></span>
             </div>
+            
             <div class="mb-3">
-                <p>
-                    <span> Already have an account?</span><a class="link-offset-2 link-underline link-underline-opacity-0 text-decoration-none" asp-page="SupLogin">Sign in</a>
-                </p>
-            </div>
-            <div class="mb-3">
-                <button type="submit" class="btn me out</label> btn-primary" asp-page-handler="Send">Sign up</button>
+                <button type="submit" class="btn me out</label> " style=" background-color:limegreen" asp-page-handler="Send">Sign up</button>
             </div>
         </form>
     </div>

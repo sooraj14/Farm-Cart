@@ -8,5 +8,6 @@ namespace FarmCart.Pages.Supplier
         public void OnGet()
         {
         }
+
     }
 }

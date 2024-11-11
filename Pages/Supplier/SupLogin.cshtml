@@ -4,8 +4,9 @@
     Layout = "_Layout";
 }
 <div class="container  d-flex align-items-center justify-content-center">
-    <div class="w-50  border border-2 p-4  rounded-3">
-        <h2>Login</h2>
+    <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light mt-5">
+        <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto;margin-left:12rem;" />
+
         <form method="post">
             <div class="mb-3">
                 <label asp-for="User.Email" class="form-label">Email address</label>
@@ -18,7 +19,12 @@
                 <span asp-validation-for="User.Password"></span>
             </div>
             <div class="mb-3">
-                <button type="submit" class="btn me out</label> btn-primary"  asp-page-handler="Send" >Login</button>
+                <p>
+                    <span> Already have an account?</span><a class="link-offset-2 link-underline link-underline-opacity-0 text-decoration-none" style="color:limegreen" asp-page="Supplier">Sign up</a>
+                </p>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn me out</label> " style=" background-color:limegreen" asp-page-handler="Send" >Login</button>
             </div>
         </form>
     </div>

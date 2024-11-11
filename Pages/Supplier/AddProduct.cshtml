@@ -2,36 +2,41 @@
 @model FarmCart.Pages.Supplier.AddProductModel
 @{
 }
-<div class="row">
-    <div class="flex-wrap col-lg-10">
-        <form method="post" enctype="multipart/form-data">
-            <h3>Add Your Products</h3>
-            <div>
-                <label asp-for="newproduct.product_name">Product Name</label>
-                <input asp-for="newproduct.product_name" class="form-control"/>
-            </div>
-            <div>
-                <label asp-for="newproduct.brand_name">Brand Name</label>
-                <input asp-for="newproduct.brand_name" class="form-control" />
-            </div>
-            <div>
-                <label asp-for="newproduct.product_description">Description</label>
-                <textarea asp-for="newproduct.product_description" class="form-control"></textarea>
-            </div>
-            <div>
-                <label asp-for="newproduct.product_price">Price</label>
-                <input asp-for="newproduct.product_price" class="form-control"/>
-            </div>
-            <div>
-                <label asp-for="newproduct.product_quantity"></label>
-                <input asp-for="newproduct.product_quantity" class="form-control"/>
-            </div>
-            <div>
-                <label asp-for="newproduct.imagefile">Choose File</label>
-                <input asp-for="newproduct.imagefile" class="form-control" type="file"/>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Add</button>
-            </div>
-        </form>
-    </div>
+
+<div class="container d-flex align-items-center justify-content-center">
+
+    <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light mt-5">
+        <div class="flex-wrap col-lg-10  ">
+            <form method="post" enctype="multipart/form-data" class="ps-5">
+                <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto; margin-left:10rem;" />
+                <div>
+                    <label asp-for="newproduct.product_name">Product Name</label>
+                    <input asp-for="newproduct.product_name" class="form-control" />
+                </div>
+                <div>
+                    <label asp-for="newproduct.brand_name">Brand Name</label>
+                    <input asp-for="newproduct.brand_name" class="form-control" />
+                </div>
+                <div>
+                    <label asp-for="newproduct.product_description">Description</label>
+                    <textarea asp-for="newproduct.product_description" class="form-control"></textarea>
+                </div>
+                <div>
+                    <label asp-for="newproduct.product_price">Price</label>
+                    <input asp-for="newproduct.product_price" class="form-control" />
+                </div>
+                <div>
+                    <label asp-for="newproduct.product_quantity"></label>
+                    <input asp-for="newproduct.product_quantity" class="form-control" />
+                </div>
+                <div>
+                    <label asp-for="newproduct.imagefile">Choose File</label>
+                    <input asp-for="newproduct.imagefile" class="form-control" type="file" />
+                </div>
+                <div>
+                    <button type="submit" class="btn " style=" background-color:limegreen">Add</button>
+                </div>
+            </form>
+        </div>
+
+</div>
