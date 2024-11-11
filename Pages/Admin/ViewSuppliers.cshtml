@@ -3,7 +3,6 @@
 @{
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,78 +15,32 @@
 </head>
 <body>
 
-
     <div class="text-center text-success">SUPPLIER DETAILS</div>
 
-
-   @*  <table class="border-2 table table-striped table-striped">
-        <thead class="border-3 ">
-            <tr class="text-center">
-                <th class="border p-1 text-danger text-center ">Product-Name</th>
-                <th class="border p-1 text-danger">Brand-Name</th>
-                <th class="border p-1 text-danger">Supplier</th>
-                <th class="border p-1 text-danger">Price</th>
-                <th class="border p-1 text-danger">Description</th>
-                <th class="border p-1 text-danger">image</th>
-                <th class="border p-1 text-danger">Action</th>
-
-            </tr>
-        </thead>
- *@
-@* 
-        @{
-            foreach (var st in @Model.supplierTable)
-            {
-
-                <div class="card d-flex" style="width: 18rem;;">
-                <img src="~/seller2.jpg" class="card-img-top height=10px" alt="...">
-                    <div class="card-body">
-                        <h3 class="card-title">@st.sup_name</h3>
-                        <h5>@st.sup_phone</h5>
-                    <h5>@st.sup_email</h5>
-                   @if(st.Is_Valid.Equals(true))
-                    {
-                        <span class="btn btn-success"> Active</span>
-                    }
-
-
-                    else
-                    {
-                        <span class="btn btn-danger ">Disable</span>
-                    }
-             
-                    </div>
-                </div><br />
-
-             
-
-            }
-        } *@
     <div class="container">
-        <div class="row">
+        <div class="row g-5">
+           
             @{
                 foreach (var st in Model.supplierTable)
                 {
-                    <div class="col-md-4 mb-4">
-                     
-                        <div class="card" style="width: 75%;">
-                            <img src="~/seller2.jpg" class="card-img-top" alt="Supplier Image" style="height: 250px; object-fit: cover;">
-                            <div class="card-body">
-                                <h5 class="card-title">Name : @st.sup_name  </h5>
-                                <h5>Id: @st.sup_id</h5>
-                                <h5>Contact : @st.sup_phone</h5>
-                                <h5>Email @st.sup_email</h5>
-                               
-
-                                @if(st.Is_Valid)
+                    <div class="col-md-2 mb-4">                            
+                 
+                        <div class="card" style="width: 110%; height:110%">
+                        
+                            <img src="~/seller2.jpg" class="card-img-top" alt="Supplier Image" style="height: 150px; object-fit: cover;">
+                            <div class="card-body" style="height: 180px;">
+                                <h5 class="card-title">Name : @st.sup_name</h5>
+                                <h6>Seller-Id: @st.sup_id</h6>
+                                <h6>Contact: @st.sup_phone</h6>
+                                <h6>Email:@st.sup_email</h6>
+<div>
+                                @if (st.Is_Valid)
                                 {
                                     <form method="post" asp-page-handler="Disable"
                                           asp-route-id="@st.sup_id" asp-route-status=false>
-                                        <button class="btn btn-danger" type="submit">Disable </button>
+                                        <button class="btn btn-danger" type="submit">Disable</button>
                                     </form>
                                 }
-
-                               
                                 else
                                 {
                                     <form method="post" asp-page-handler="Enable"
@@ -96,15 +49,7 @@
                                         <button class="btn btn-success" type="submit">Enable</button>
                                     </form>
                                 }
-
-
-
-
-
-
-
-
-                                
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -113,6 +58,5 @@
         </div>
     </div>
 
-  
 </body>
 </html>

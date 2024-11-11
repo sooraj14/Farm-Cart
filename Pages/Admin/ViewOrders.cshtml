@@ -18,11 +18,15 @@
 <table class="border-2 table table-striped table-striped">
     <thead class="border-3 ">
         <tr class="text-center"> 
-            <th class="border p-1 text-danger text-center ">Order-NO</th>
-            <th class="border p-1 text-danger">Order-Date</th>
-            <th class="border p-1 text-danger">Order_amount</th>
-            <th class="border p-1 text-danger">Order-Location</th>
-            <th class="border p-1 text-danger">Customer-Id</th>
+            <th class="border p-1 text-danger text-center ">Customer_ref_no</th>
+            <th class="border p-1 text-danger">Product_ref_no</th>
+            <th class="border p-1 text-danger">Product_price</th>
+            <th class="border p-1 text-danger">Product_quantity</th>
+            <th class="border p-1 text-danger">Product_name</th>
+                <th class="border p-1 text-danger">Customer_name</th>
+                <th class="border p-1 text-danger">Customer_Email</th>
+                <th class="border p-1 text-danger">Customer_PhoneNo</th>
+               
             
 
         </tr>
@@ -30,16 +34,21 @@
 
 
         @{
-            foreach(var o in Model.ord)
+            foreach (var o in Model.ord)
             {
-               <tr class="text-center">
-                 <td class="border-3 p-1 ">@o.ord_no</td>
-                 <td class="border-3 p-1 ">@o.ord_date</td>
-                 <td class="border-3 p-1 ">@o.total_amount</td>
-                 <td class="border-3 p-1 ">@o.ord_address</td>
-                 <td class="border-3 p-1 ">@o.cust_id</td>
-                 
-               </tr>
+                <tr class="text-center">
+                    <td class="border-3 p-1 ">@o.cust_id</td>
+                    <td class="border-3 p-1 ">@o.product_id</td>
+                    <td class="border-3 p-1 ">@o.product_price</td>
+                    <td class="border-3 p-1 ">@o.product_quantity</td>
+                    <td class="border-3 p-1 ">@o.product_name</td>
+                    <td class="border-3 p-1 ">@o.CustName</td>
+                  
+
+                    <td class="border-3 p-1 ">@o.CustEmail</td>
+                    <td class="border-3 p-1 ">@o.CustPhone</td>
+
+                </tr>
             }
 
     }

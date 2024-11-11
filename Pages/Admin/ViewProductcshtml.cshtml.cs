@@ -13,14 +13,16 @@ namespace FarmCart.Pages.Admin
       
         public ViewProductcshtmlModel(ApplicationDbContext dbcontext)
         {
-            _context = dbcontext;
+            _context = dbcontext;   
         }
 
         public List<Product> prod { get; set; }
+      
         public void OnGet()
         {
 
-            prod = _context.producttable.ToList();
+           
+           
         }
     }
 }

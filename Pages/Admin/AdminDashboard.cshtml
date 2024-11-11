@@ -5,25 +5,154 @@
 
 
 }
+
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FarmSquare</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .sidebar a {
+            color: #adb5bd;
+        }
+
+        .sidebar a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .card {
+            margin: 20px 0;
+        }
+
+        .dashboard-header {
+            background-color: #f96363;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="text-center">Admin Dashboard</div>
+    <div class=" container-fluid ">
+        <div class="row">
+            <!-- Sidebar -->
+        @*     <nav class="col-md-2 sidebar py-4">
+                <h4 class="text-center">Admin Panel</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">All Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Add Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Comments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Sign Out</a>
+                    </li>
+                </ul>
+            </nav> *@
 
-
-
-  
-   
-
+            <!-- Main Content -->
+            <main class="col mb-5 p-5" >
+                <div class="dashboard-header text-white bg-black">
+                    <h2 class="text-center">FARMCART-STATICS</h2>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-md-3">
+                        <div class="card text-white bg-primary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Users</h5>
+                                <p class="card-text display-4">105</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-3">
+                        <div class="card text-white bg-success shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                            <div class="card-body">
+                                <h5 class="card-title">Toatl-Orders</h5>
+                                <p class="card-text display-4">@Model.totalcountoforders</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-3">
+                        <div class="card text-white bg-danger shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                            <div class="card-body">
+                                <h5 class="card-title">Toatol-Supplier</h5>
+                                <p class="card-text display-4">@Model.totalsupplier</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-3 ">
+                        <div class="card text-white bg-primary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                            <div class="card-body ">
+                                <h5 class="card-title">Total-Product</h5>
+                                <p class="card-text display-4">@Model.totalcountofproduct</p>
+                       </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body ">
+                                <h5 class="card-title">Hello Admin</h5>
+                                <p class="card-te   xt ">Please check whatsapp</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Hello Admin</h5>
+                                <p class="card-text">Please Check the Mail</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
 </body>
 </html>
+
+
+
+
+   
+
 
 

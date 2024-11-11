@@ -1,5 +1,6 @@
 ﻿using FarmCart.Data.Entity;
 /*using FarmSquare.Data.Entity;*/
+using FarmCart.Pages.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace FarmCart.Data.dbcontext
@@ -28,5 +29,7 @@ namespace FarmCart.Data.dbcontext
           public DbSet<OrderItem> OrderItems { get; set; }*/
 
         public object Categories { get; internal set; }
+        public DbSet<ViewOrders> ViewOrder { get; set; }
+
     }
 }
