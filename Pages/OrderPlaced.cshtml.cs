@@ -20,24 +20,22 @@ namespace FarmCart.Pages
 
         public void OnGet(int orderId)
         {
-            // Fetch order details
+            
             OrderDetails = _context.ordertable.FirstOrDefault(o => o.ord_id == orderId);
 
             if (OrderDetails == null)
             {
-                // If order not found, redirect to cart page or show an error
+                
                 RedirectToPage("/Cart");
                 return;
             }
 
-            // Fetch order items based on the order number
             OrderItems = _context.orderitemtable
                 .Where(i => i.item_ord_no == OrderDetails.ord_no)
                 .ToList();
 
             if (OrderItems == null || !OrderItems.Any())
             {
-                // Log error or handle case where there are no items in the order
                 Console.WriteLine("No items found for this order.");
             }
         }
