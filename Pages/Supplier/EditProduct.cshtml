@@ -2,10 +2,12 @@
 @model FarmCart.Pages.Supplier.EditProductModel
 @{
 }
+<div class="container d-flex align-items-center justify-content-center">
  <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light mt-5">
      <div class="flex-wrap col-lg-10  ">
          <form method="post" enctype="multipart/form-data" class="ps-5">
              <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto; margin-left:10rem;" />
+            <input type="hidden" asp-for="editdata.product_id" />
              <div>
                  <label asp-for="editdata.product_name">Product Name</label>
                  <input asp-for="editdata.product_name" class="form-control" />
@@ -26,10 +28,10 @@
                  <label asp-for="editdata.product_quantity"></label>
                  <input asp-for="editdata.product_quantity" class="form-control" />
              </div>
-              @* <div>
-                  <label asp-for="newproduct.imagefile">Choose File</label>
-                  <input asp-for="newproduct.imagefile" class="form-control" type="file" />
-              </div> *@
+               <div>
+                   <label asp-for="editdata.imagefile">Choose File</label>
+                   <input asp-for="editdata.imagefile" class="form-control" type="file" />
+               </div>
              <div>
                 
                 <button type="submit" class="btn "  style=" background-color:limegreen">Update</button>
@@ -37,4 +39,5 @@
          </form>
      </div>
 
+ </div>
  </div>

@@ -27,8 +27,17 @@
             <div class="mb-3">
                 <button type="submit" class="btn me out</label> " style=" background-color:limegreen" asp-page-handler="Send" >Login</button>
             </div>
+<<<<<<< HEAD
             
               
+=======
+            <div>
+                @if(TempData["supplier blocked"]!=null)
+                {
+                    <p class="text-danger">@TempData["supplier blocked"]</p>
+                }
+            </div>
+>>>>>>> main
         </form>
 
       
