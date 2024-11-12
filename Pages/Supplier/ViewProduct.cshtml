@@ -1,37 +1,4 @@
-﻿@* @page
-@model FarmCart.Pages.Supplier.ViewProductModel
-@{
-}
-
-<div class="container">
-<div class="row">
-    <h1>Your Products:</h1>
-    <div class="d-flex flex-wrap col-lg-12">
-       
-        @{
-            foreach (var ProductList in @Model.productlist)
-            {
-                    <form method="post">
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="~/Images/@ProductList.imagepath" class="card-img-top" alt="">
-                    <div class="card-body ">
-                        <p class="card-text">Product Name: @ProductList.product_name</p>
-                        <p class="card-text">Company: @ProductList.brand_name</p>
-                        <p class="card-text">Description: @ProductList.product_description</p>
-                        <p class="card-text">Price: @ProductList.product_price</p>
-                        <p class="card-text">Quantity: @ProductList.product_quantity</p>
-                       <button class="btn btn-info" asp-route-id="@ProductList.product_id">Edit</button>
-                    </div>
-                </div>
-                    </form>
-                    
-            }
-        }
-
-    </div>
-</div>
-</div> *@
+﻿
 @page
 @model FarmCart.Pages.Supplier.ViewProductModel
 <div class="container">
@@ -48,8 +15,6 @@
                         <p class="card-text">Description: @ProductList.product_description</p>
                         <p class="card-text">Price: @ProductList.product_price</p>
                         <p class="card-text">Quantity: @ProductList.product_quantity</p>
-
-                        <!-- Form for Edit button -->
                         <form method="post">
                             <input type="hidden" name="product_id" value="@ProductList.product_id" />
                             <button type="submit" class="btn btn-info">Edit</button>

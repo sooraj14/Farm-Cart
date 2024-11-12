@@ -33,7 +33,8 @@ namespace FarmCart.Pages.Supplier
                 sup_phone = Sup.PhoneNumber,
                 //sup_location = Sup.Location,
                 sup_password = Sup.Password,
-                confirm_password = Sup.ConfirmPassword
+                confirm_password = Sup.ConfirmPassword,
+                     Is_Valid    = true
             };
             _context.suptable.Add(user);
             _context.SaveChanges();

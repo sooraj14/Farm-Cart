@@ -23,5 +23,6 @@ namespace FarmCart.Pages.Model
         [Required]
         [Compare("Password", ErrorMessage = "Enter Correct Password")]
         public string ConfirmPassword { get; set; }
+        public bool isvalid { get; set; }
     }
 }
