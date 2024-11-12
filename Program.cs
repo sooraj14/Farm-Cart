@@ -13,7 +13,8 @@ namespace FarmCart
             builder.Services.AddRazorPages();
 
             builder.Services.AddSession();
-           
+
+            builder.Services.AddHttpContextAccessor();
 
 
             // Configure database context with SQL Server

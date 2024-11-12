@@ -9,7 +9,7 @@ using Microsoft.Identity.Client;
 
 namespace FarmCart.Pages.Supplier
 {
-    public class EditProductModel : PageModel
+    public   class EditProductModel : PageModel
     {
         private readonly ApplicationDbContext _context;
         public EditProductModel(ApplicationDbContext context)

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace FarmCart.Pages.Admin
 {
@@ -16,6 +17,7 @@ namespace FarmCart.Pages.Admin
         public ViewOrdersModel(ApplicationDbContext dbContext)
         {
             _context = dbContext;
+          
         }
 
         public List<ViewOrders> ord { get; set; }
@@ -43,6 +45,8 @@ namespace FarmCart.Pages.Admin
             ord = _context.ViewOrder.FromSqlRaw(query).ToList();
             totalorderscount = _context.ViewOrder.Count();
         }
+
+      
 
     }
 }

@@ -2,6 +2,7 @@
 @model FarmCart.Pages.IndexModel
 @{
     ViewData["Title"] = "Home page";
+        
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -111,7 +112,6 @@
                              
                                 <button type="submit" name="action" value="placeProduct" class="btn btn-primary me-2">Place Product</button>
 
-                             
                                 <input type="hidden" name="productId" value="@product.product_id" />
                             </div>
                         </div>

@@ -1,0 +1,50 @@
+﻿@page
+@model FarmCart.Pages.Customer.ProfileModel
+@{
+}
+
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light">
+        <div class="text-center mb-4">
+            <img src="~/farmsquare rmovebg.png" alt="FarmSquare Logo" style="max-width: 200px; height: auto;">
+        </div>
+
+        <form method="post">
+            <div class="mb-3">
+                <label for="nameInput" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="nameInput" asp-for="newpf.Name" placeholder="Enter your full name" >
+                
+            </div>
+
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email</label>
+                <input type="email" class="form-control"  asp-for="newpf.Email" placeholder="Enter your email" >
+                
+            </div>
+
+            <div class="mb-3">
+                <label for="phoneInput" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phoneInput" asp-for="newpf.PhoneNumber" placeholder="Enter your phone number" >
+                
+            </div>
+
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Password</label>
+                <input  class="form-control" id="passwordInput" asp-for="newpf.Password" placeholder="Enter your password" >
+                
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
+                <input  class="form-control" id="confirmPasswordInput" asp-for="newpf.ConfirmPassword" placeholder="Confirm your password" >
+                
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+
+       
+    </div>
+</div>

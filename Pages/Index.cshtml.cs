@@ -27,6 +27,8 @@ namespace FarmCart.Pages
         public void OnGet()
         {
             Products = _context.producttable.ToList();
+
+
         }
         /* public  IActionResult OnPost(int id)
          {
