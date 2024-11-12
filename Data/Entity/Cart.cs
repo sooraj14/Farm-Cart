@@ -10,6 +10,7 @@ namespace FarmCart.Data.Entity
         public int cust_id { get; set; }
 
         public int quantity { get; set; }
+        public bool is_buy_now = true;
       /*  public Product Product { get; set; }*/
 
     }
