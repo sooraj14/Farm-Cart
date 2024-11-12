@@ -1,0 +1,48 @@
+﻿@page
+@model FarmCart.Pages.Admin.viewusersModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FarmSquare</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+
+<div class="text-center text-success fs-5 m-3">USER DETAILS</div>
+
+<div style="max-width: 500px; margin: auto; overflow-x: auto;">
+    <table class="border-2 table table-striped table-striped table-sm">
+        <thead class="border-2 ">
+            <tr class="text-center">
+                <th class="border p-1 text-danger text-center ">Customer-Name</th>
+                <th class="border p-1 text-danger">Contact-No</th>
+                <th class="border p-1 text-danger">Email</th>
+               
+
+            </tr>
+        </thead>
+
+
+        @{
+            foreach (var prodd in Model.CustomerTable)
+            {
+                <tr class="text-center">
+                    <td class="border-3 p-1 ">@prodd.CustName</td>
+                    <td class="border-3 p-1 ">@prodd.CustPhone</td>
+                    <td class="border-3 p-1 ">@prodd.CustEmail</td>
+                </tr>
+
+            }
+        }
+    </table>
+</div>
+</div>
+</body>
+</html>

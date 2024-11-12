@@ -25,9 +25,11 @@ namespace FarmCart.Pages.Supplier
                 return Page();
             }
             
-            var authUser = _context.suptable.Where(p => p.sup_email == User.Email && p.sup_password == User.Password).FirstOrDefault();
+            var authUser = _context.suptable.Where(p => p.sup_email == User.Email && p.sup_password == User.Password   ).FirstOrDefault();
             
-            if (authUser!= null)
+           
+            
+            if (authUser!= null )
             {
                 HttpContext.Session.SetInt32("sup_id", authUser.sup_id);
                 return RedirectToPage("SupHome");

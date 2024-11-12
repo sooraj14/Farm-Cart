@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using FarmCart.Data.dbcontext;
 using FarmCart.Data.Entity;
 using System.Linq;
+using FarmCart.Pages.Model;
 
 namespace FarmCart.Pages
 {
@@ -18,6 +19,7 @@ namespace FarmCart.Pages
         public Orders OrderDetails { get; private set; }
         public List<OrderItem> OrderItems { get; private set; }
 
+        public OrderProductJoin orddetails { get;  set; }
         public void OnGet(int orderId)
         {
             
@@ -39,5 +41,10 @@ namespace FarmCart.Pages
                 Console.WriteLine("No items found for this order.");
             }
         }
+
+
+       
+           
+        
     }
 }

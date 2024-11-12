@@ -21,6 +21,8 @@ namespace FarmCart.Pages.Cart
         }
 
         public List<OrderProductJoin> OrderProduct { get; set; } = new List<OrderProductJoin>();
+
+        public List<Orders> ordertabledetails { get; set; } = new List<Orders>();
         public void OnGet()
         {
 
@@ -42,6 +44,8 @@ namespace FarmCart.Pages.Cart
         }
         public IActionResult OnPostPlaceOrder(int product_id)
         {
+
+           
             return RedirectToPage("/OrderPlaced");
         }
     }

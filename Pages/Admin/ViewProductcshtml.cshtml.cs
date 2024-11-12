@@ -16,12 +16,13 @@ namespace FarmCart.Pages.Admin
             _context = dbcontext;   
         }
 
-        public List<Product> prod { get; set; }
-      
+        public List<Product> prodtable { get; set; } = new List<Product>();
+
+
         public void OnGet()
         {
 
-           
+            prodtable = _context.producttable.ToList();
            
         }
     }
