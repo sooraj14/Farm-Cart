@@ -12,5 +12,7 @@ namespace FarmCart.Pages.Model
             public int product_quantity { get; set; }
             public int sup_id { get; set; }
             public IFormFile imagefile { get; set; }
+        public string image_url { get; set; }
+          
         }
     }

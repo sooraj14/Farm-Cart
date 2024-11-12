@@ -5,6 +5,8 @@ namespace FarmCart.Data.Entity
 {
     public class Product
     {
+       
+
         [Key]
         public int product_id { get; set; }
         public string product_name { get; set; }
