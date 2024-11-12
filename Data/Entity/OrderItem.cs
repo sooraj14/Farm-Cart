@@ -13,6 +13,9 @@ namespace FarmCart.Data.Entity
         public int product_quantity { get; set; }
 
         public bool Is_Available { get; set; }
-      
+        public decimal subtotal => product_price * product_quantity;
+
+        // Navigation properties
+     /*   public virtual Orders Order { get; set; }*/
     }
 }

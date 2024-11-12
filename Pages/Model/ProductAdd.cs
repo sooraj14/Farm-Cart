@@ -11,7 +11,6 @@ namespace FarmCart.Pages.Model
         public int product_quantity { get; set; }
         public int sup_id { get; set; }
 
-        public int count = 0;
         public IFormFile imagefile { get; set; }
         
     }

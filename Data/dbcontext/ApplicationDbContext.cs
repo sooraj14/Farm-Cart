@@ -16,7 +16,7 @@ namespace FarmCart.Data.dbcontext
         public DbSet<CustomerTable> Customers { get; set; } //used in customer table
         public DbSet<SupplierTable> suptable { get; set; } //used 
         public DbSet<Product> producttable { get; set; } //used
-        public DbSet<Orders> ordertable { get; set; }  
+        public DbSet<Orders> ordertable { get; set; }
         public DbSet<OrderItem> orderitemtable { get; set; }
         public DbSet<Cart> Carts { get; set; }
 

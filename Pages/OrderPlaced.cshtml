@@ -1,37 +1,78 @@
 ﻿@page
 @model FarmCart.Pages.OrderPlacedModel
+@{
+}
 
-<h2>Order Confirmed!</h2>
+<h2 class="text-center my-4">Order Confirmed!</h2>
 
 @if (Model.OrderDetails != null)
 {
-    <div class="order-summary">
-        <h4>Order ID: @Model.OrderDetails.ord_no</h4>
-        <p><strong>Order Date:</strong> @Model.OrderDetails.ord_date.ToString("MM/dd/yyyy")</p>
-        <p><strong>Shipping Address:</strong> @Model.OrderDetails.ord_address</p>
-        <p><strong>Total Amount:</strong> $@Model.OrderDetails.total_amount</p>
-    </div>
-
-    <h3>Order Items:</h3>
-    @if (Model.OrderItems != null && Model.OrderItems.Any())
-    {
-        @foreach (var item in Model.OrderItems)
-        {
-            <div class="order-item">
-                <p><strong>Quantity:</strong> @item.product_quantity</p>
-                <p><strong>Price:</strong> $@item.product_price</p>
-                <p><strong>Total:</strong> $@item.product_price * @item.product_quantity</p>
+    <div class="container order-summary-container">
+        <div class="card order-summary-card mb-5 shadow-sm rounded">
+            <div class="card-body">
+                <h4 class="order-id">CustomerID: @Model.OrderDetails.cust_id</h4>
+                <p><strong>Order Date:</strong> @Model.OrderDetails.ord_date.ToString("MM/dd/yyyy")</p>
+                <p><strong>Product:</strong> @Model.OrderDetails.products</p>
+                <p><strong>Total Amount:</strong> <span class="text-success fw-bold">$@Model.OrderDetails.total_amount</span></p>
+               
             </div>
-        }
-    }
-    else
-    {
-        <p>No items found in this order.</p>
-    }
+        </div>
+
+  
+    </div>
 }
 else
 {
-    <p>Order details not found.</p>
+    <p class="text-center text-danger">Order details not found.</p>
 }
 
-<button class="btn btn-primary">Continue Shopping</button>
+<div class="text-center mt-5">
+    <a href="/" class="btn btn-primary">Continue Shopping</a>
+</div>
+
+<style>
+    .order-summary-container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .order-summary-card, .order-item-card {
+        border: 0;
+    }
+
+    .order-item-card {
+        background-color: #f9f9f9;
+    }
+
+    .order-id {
+        font-weight: 700;
+        color: #4CAF50;
+    }
+</style>
+
+
+
+
+@*  <h3 class="text-center my-3">Order Items</h3>
+
+        @if (Model.OrderItems != null && Model.OrderItems.Any())
+        {
+            <div class="row g-3">
+                @foreach (var item in Model.OrderItems)
+                {
+                    <div class="col-md-4">
+                        <div class="card order-item-card shadow-sm rounded">
+                            <div class="card-body">
+                                <p><strong>Quantity:</strong> @item.product_quantity</p>
+                                <p><strong>Price per item:</strong> $@item.product_price</p>
+                                <p><strong>Total:</strong> $@(item.product_price * item.product_quantity)</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        } *@
+@*  else
+        {
+            <p class="text-center text-muted">No items found in this order.</p>
+        } *@

@@ -39,6 +39,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateBulkOrderButton();
         });
+
 //function toggledown() {
 //    const dropdownmenu = document.getElementById('dropdownmenu');
 //    const isvisible = dropdownmenu.style.display === 'block';

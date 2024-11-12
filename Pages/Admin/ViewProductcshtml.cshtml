@@ -18,11 +18,11 @@
 <body>
 
 
-<div class="text-center text-success">PRODUCT DETAILS</div>
+<div class="text-center text-success fs-5 m-3">PRODUCT DETAILS</div>
 
-
-<table class="border-2 table table-striped table-striped">
-    <thead class="border-3 ">
+    <div style="max-width: 1200px; margin: auto; overflow-x: auto;">
+<table class="border-2 table table-striped table-striped table-sm">
+    <thead class="border-2 ">
         <tr class="text-center">
             <th class="border p-1 text-danger text-center ">Product-Name</th>
             <th class="border p-1 text-danger">Brand-Name</th>
@@ -37,7 +37,7 @@
 
     
      @{
-         foreach (var prodd in @Model.prod)
+         foreach(var prodd in Model.prodtable   )
          {
              <tr class="text-center">
                  <td class="border-3 p-1 ">@prodd.product_name</td>
@@ -52,13 +52,13 @@
                         @if (prodd.is_available.Equals(true))
                         {
 
-                            <span class="btn btn-success"> Available</span>
+                            <span class="btn btn-success btn-sm"> Available</span>
                         }
 
 
                         else
                         {
-                            <span class="btn btn-danger ">Unavilable</span>
+                            <span class="btn btn-danger  btn-sm">Unavilable</span>
                         }
 
                     </td>
@@ -68,5 +68,6 @@
          }
      }
     </table>
+    </div>
 </body>
 </html>
