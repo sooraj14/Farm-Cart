@@ -9,14 +9,12 @@ using Microsoft.Identity.Client;
 
 namespace FarmCart.Pages.Supplier
 {
-    public class EditProductModel : PageModel
+    public   class EditProductModel : PageModel
     {
         private readonly ApplicationDbContext _context;
-        private readonly IWebHostEnvironment _environment;
-        public EditProductModel(ApplicationDbContext context,IWebHostEnvironment environment)
+        public EditProductModel(ApplicationDbContext context)
         {
             _context = context;
-            _environment = environment;
         }
         
         [BindProperty]
@@ -42,7 +40,6 @@ namespace FarmCart.Pages.Supplier
             }
             else
             {
-                
                 editdata = new EditProduct
                 {
                     product_name = newuser.product_name,
@@ -50,25 +47,20 @@ namespace FarmCart.Pages.Supplier
                     product_description = newuser.product_description,
                     product_price = newuser.product_price,
                     product_quantity = newuser.product_quantity, 
-                    product_id= newuser.product_id,
-                    image_url = newuser.imagepath
-
+                    product_id= newuser.product_id
                 };
             }
             return Page();
             
         }  
 
-        public async Task<IActionResult> OnPostAsync()
-        {         
+        public IActionResult OnPost()
+        {
 
+         
             var newuser = _context.producttable.Find(editdata.product_id);
-            var filename = Guid.NewGuid().ToString() + Path.GetExtension(editdata.imagefile.FileName);
-            string filepath = Path.Combine(_environment.WebRootPath, "Images", filename);
-            var filestream = new FileStream(filepath, FileMode.Create);
-            await editdata.imagefile.CopyToAsync(filestream);
 
-            if (newuser == null)
+                if (newuser == null)
                 {
                     return NotFound();
                 }
@@ -76,14 +68,16 @@ namespace FarmCart.Pages.Supplier
                 {                
                     newuser.product_name = editdata.product_name;
                     newuser.brand_name = editdata.brand_name;
+
                     newuser.product_description = editdata.product_description;
                     newuser.product_price = editdata.product_price;
                     newuser.product_quantity = editdata.product_quantity;
-                    newuser.imagepath = filename;
                      
                 }
 
-                   await _context.SaveChangesAsync();
+               
+                _context.SaveChanges();
+              
                   return RedirectToPage("/Supplier/SupHome");
         }
     }

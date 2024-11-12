@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq;
 using FarmCart.Data.dbcontext;
 using FarmCart.Data.Entity;
-<<<<<<< HEAD
+
 using System.Linq;
 using FarmCart.Pages.Model;
-=======
+
 using System.Collections.Generic;
->>>>>>> main
+
 
 namespace FarmCart.Pages
 {
@@ -24,12 +24,12 @@ namespace FarmCart.Pages
         public Orders OrderDetails { get; private set; }
         public List<OrderItem> OrderItems { get; private set; }
 
-<<<<<<< HEAD
+
         public OrderProductJoin orddetails { get;  set; }
         public void OnGet(int orderId)
-=======
+        { }
         public IActionResult OnGet()
->>>>>>> main
+
         {
             int? customerId = HttpContext.Session.GetInt32("cust_id");
             if (!customerId.HasValue)
