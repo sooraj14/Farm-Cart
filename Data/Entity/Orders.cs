@@ -12,6 +12,10 @@ namespace FarmCart.Data.Entity
         public string ord_address { get; set; }
         public int cust_id { get; set; }
         public string products { get; set; }
+       /* public string? order_status { get; set; } = "Pending";
+
+        // Navigation property
+        public virtual ICollection<OrderItem> OrderItems { get; set; }*/
 
     }
 }

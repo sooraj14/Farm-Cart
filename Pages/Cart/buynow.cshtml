@@ -1,0 +1,76 @@
+﻿@page
+@model buynowModel
+@{
+}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Buy Now</h3>
+                </div>
+                <div class="card-body">
+                    @if (Model.Product != null)
+                    {
+                        <div class="product-details">
+                            <h4 class="mb-3">@Model.Product.Product_name</h4>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <p class="text-muted">@Model.Product.Product_description</p>
+                                    <p class="price h5">Unit Price: $@Model.Product.Product_price</p>
+                                </div>
+                            </div>
+
+                            <form method="post" id="buyNowForm">
+                                <input type="hidden" name="product_id" value="@Model.Product.Product_id" />
+                                <input type="hidden" id="productPrice" value="@Model.Product.Product_price" />
+
+                                <div class="form-group mb-4">
+                                    <label for="quantity" class="form-label">Select Quantity:</label>
+                                    <input type="number"
+                                           name="quantity"
+                                           id="quantity"
+                                           class="form-control"
+                                           style="max-width: 200px;"
+                                           min="1"
+                                           max="@Model.Product.Product_quantity"
+                                           value="1" />
+                                </div>
+
+                                <div class="total-price mb-4">
+                                    <h5>Total Price: $<span id="totalPrice">@Model.Product.Product_price</span></h5>
+                                </div>
+
+                                <button type="submit" asp-page-handler="PlaceOrder" class="btn btn-primary">
+                                    Place Order
+                                </button>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-center text-danger">Product not found.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('quantity').addEventListener('input', function() {
+            const quantity = parseInt(this.value) || 1;
+            const maxQuantity = parseInt(this.max);
+            const price = parseFloat(document.getElementById('productPrice').value);
+
+            if (quantity > maxQuantity) {
+                this.value = maxQuantity;
+                alert('Selected quantity exceeds available stock.');
+            }
+
+            const total = (price * this.value).toFixed(2);
+            document.getElementById('totalPrice').textContent = total;
+        });
+    </script>
+}
