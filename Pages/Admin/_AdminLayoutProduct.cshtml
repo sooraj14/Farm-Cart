@@ -11,34 +11,36 @@
 </head>
 <body> 
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow mb-0">
+        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow mb-3" style="background: linear-gradient(to left, rgba(0, 255, 127, 0.1), rgba(124, 252, 0, 0.9)); margin-left:0px;">
             <div class="container">
                 
-                <img src="~/Logo.png" alt="Alternate Text" style="width:200px; height:auto;"/>
+               
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex ">
-                    <ul class="navbar-nav p-2">
-                        <li class="nav-item me-3">
-                            <a class="nav-link text-white fs-4 icon-link icon-link-hover " asp-area="" asp-page="/Admin/AdminDashboard">Dashboard</a>
+                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                        <li class="nav-item ">
+                            <img src="~/Logo.png" alt="Alternate Text" style=" max-width: 200px; height: 40px; margin-left:10px;" />
+
                         </li>
-                        <li class="nav-item me-3">
-                            <a class="nav-link text-white fs-4 icon-link icon-link-hover" asp-area="" asp-page="/Admin/ViewProductcshtml">Product</a>
+                        <li class="nav-item " style="padding-left:30px;">
+                            <a class="nav-link text-white fs-5 " asp-area="" asp-page="/Admin/AdminDashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item " style="padding-left:30px;">
+                            <a class="nav-link text-white fs-5" asp-area="" asp-page="/Admin/ViewProductcshtml">Product</a>
                         </li>
 
-                        <li class="nav-item me-3">
-                            <a class="nav-link text-white fs-4 icon-link icon-link-hover" asp-area="" asp-page="/Index">Logout</a>
+                        <li class="nav-item " style="padding-left:30px;">
+                            <a class="nav-link text-white fs-5" asp-area="" asp-page="/Index">Logout</a>
                         </li>
 
                       
                     </ul>
                 </div>
 
-                <div>
-                    <p class="mt-2">Admin-Dashboard</p>
-                </div>
+               
             </div>
         </nav>
     </header>
@@ -46,18 +48,23 @@
         <main role="main" class="pb-o">
             @RenderBody()
         </main>
-    
-
-    <footer class="border-top footer text-muted bg-success">
-        <div class="container text-black text-center">
-            &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 </body>
+
+<footer class="border-top footer text-black bg-success" style="background: linear-gradient(to left, rgba(0, 255, 127, 0.1), rgba(124, 252, 0, 0.9));">
+        <div class="container text-black text-center">
+            &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+
 </html>
+

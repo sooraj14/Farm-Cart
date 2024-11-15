@@ -3,7 +3,6 @@
 
 // Write your JavaScript code.
 
-
       
  const swiper = new Swiper('.category-carousel', {
     slidesPerView: 5,
@@ -34,6 +33,7 @@
             document.getElementById('totalPrice').textContent = total;
         });
    
+
 
 
 
@@ -74,6 +74,7 @@
             updateBulkOrderButton();
         });
 
+
 //function toggledown() {
 //    const dropdownmenu = document.getElementById('dropdownmenu');
 //    const isvisible = dropdownmenu.style.display === 'block';
@@ -87,5 +88,6 @@
 //        dropdownmenu.style.display = 'none';
 //    }
 //}
+
 
 

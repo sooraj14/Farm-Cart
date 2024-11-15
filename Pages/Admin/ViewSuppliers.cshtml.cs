@@ -18,9 +18,16 @@ namespace FarmCart.Pages.Admin
 
         public List<SupplierTable> supplierTable { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            int? val = HttpContext.Session.GetInt32("Athuentication");
+            if (val == null)
+            {
+                return RedirectToPage("/Admin/Admin");
+            }
             supplierTable = _context.suptable.ToList();
+
+            return Page();
         }
 
         public IActionResult OnPostDisable(int id, bool newstatus)

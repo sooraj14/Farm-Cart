@@ -19,10 +19,15 @@ namespace FarmCart.Pages.Admin
         public List<Product> prodtable { get; set; } = new List<Product>();
 
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            int? val = HttpContext.Session.GetInt32("Athuentication");
+            if (val == null)
+            {
+                return RedirectToPage("/Admin/Admin");
+            }
             prodtable = _context.producttable.ToList();
+            return Page();
            
         }
     }
