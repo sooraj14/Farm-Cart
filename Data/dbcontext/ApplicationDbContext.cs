@@ -19,7 +19,7 @@ namespace FarmCart.Data.dbcontext
         public DbSet<Orders> ordertable { get; set; }
         public DbSet<OrderItem> orderitemtable { get; set; }
         public DbSet<Cart> Carts { get; set; }
-
+         public DbSet<Feedback> feedbacks { get; set; }
 
 
         /*         public DbSet<CustomerTable> custtable { get; set; } // not required 

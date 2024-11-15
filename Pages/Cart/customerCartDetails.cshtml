@@ -1,126 +1,10 @@
-﻿@* @page
-@model FarmCart.Pages.Cart.customerCartDetailsModel
-@{
-}
-
-<form method="post">
-    <div class="container mt-5">
-        @foreach (var op in Model.OrderProduct)
-        {
-            <div class="card border-0 shadow-sm rounded" style="max-width: 500px; margin: auto;">
-                <img src="~/Images/@op.Product_image" class="card-img-top" alt="Product Image">
-                <div class="card-body">
-                    <h5 class="card-title">@op.Product_name</h5>
-                    <p class="card-text"><strong>Price:</strong> $@op.Product_price</p>
-                    <p class="card-text">@op.Product_description</p>
-
-                    <!-- Quantity dropdown for selecting desired quantity -->
-                    <label for="quantity-@op.Product_id" class="form-label fw-bold">Select Quantity:</label>
-                    <select id="quantity-@op.Product_id" name="Quantities[@op.Product_id]" class="form-select" style="width: auto;">
-                        @for (int i = 1; i <= op.Product_quantity; i++)
-                        {
-                            <option value="@i">@i</option>
-                        }
-                    </select>
-
-                    <button class="btn btn-success me-2 mt-2" type="submit" formaction="/Cart/customerCartDetails?handler=PlaceOrder">Place Order</button>
-                </div>
-            </div>
-        }
-    </div>
-</form>
- *@
-
-@*  @page
-@model FarmCart.Pages.Cart.customerCartDetailsModel
-@{
-}
-<form method="post" id="orderForm">
-    <div class="container mt-5">
-        <div class="mb-4 text-end">
-            <div class="form-check d-inline-block me-3">
-                <input type="checkbox" class="form-check-input" id="selectAll" onchange="toggleAllProducts()">
-                <label class="form-check-label" for="selectAll">Select All Products</label>
-            </div>
-            <button type="submit"
-                    class="btn btn-primary"
-                    asp-page-handler="PlaceOrder"
-                    name="orderType"
-                    value="bulk">
-                Buy Now
-            </button>
-        </div>
-
-        @foreach (var op in Model.OrderProduct)
-        {
-            <div class="card border-0 shadow-sm rounded mb-4" style="max-width: 500px; margin: auto;">
-                <div class="card-header bg-white">
-                    <div class="form-check">
-                        <input type="checkbox"
-                               class="form-check-input product-checkbox"
-                               id="check-@op.Product_id"
-                               name="SelectedProducts"
-                               value="@op.Product_id">
-                        <label class="form-check-label" for="check-@op.Product_id">
-                            Select
-                        </label>
-                    </div>
-                </div>
-                <img src="~/Images/@op.Product_image" class="card-img-top" alt="Product Image">
-                <div class="card-body">
-                    <h5 class="card-title">@op.Product_name</h5>
-                    <p class="card-text"><strong>Price:</strong> $@op.Product_price</p>
-                    <p class="card-text">@op.Product_description</p>
-                    <p class="card-text">
-                        <small class="text-muted">Available Quantity: @op.Product_quantity</small>
-                    </p>
-
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-                            <label for="quantity-@op.Product_id" class="form-label fw-bold">Select Quantity:</label>
-                        </div>
-                        <div class="col-auto">
-                            <select id="quantity-@op.Product_id"
-                                    name="Quantities[@op.Product_id]"
-                                    class="form-select"
-                                    style="width: auto;">
-                                @for (int i = 1; i <= op.Product_quantity; i++)
-                                {
-                                    <option value="@i">@i</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-success mt-3"
-                            type="submit"
-                            asp-page-handler="PlaceOrder"
-                            asp-route-singleProductId="@op.Product_id"
-                            name="orderType"
-                            value="single">
-                        Place Order
-                    </button>
-                </div>
-            </div>
-        }
-    </div>
-</form>
-
-<script>
-    function toggleAllProducts() {
-        const selectAllCheckbox = document.getElementById('selectAll');
-        const productCheckboxes = document.getElementsByClassName('product-checkbox');
-
-        Array.from(productCheckboxes).forEach(checkbox => {
-            checkbox.checked = selectAllCheckbox.checked;
-        });
-    }
-</script> *@
+﻿
 
 @page
 @model FarmCart.Pages.Cart.customerCartDetailsModel
 @{
     ViewData["Title"] = "Customer Cart Details";
+   
 
     var message = TempData["Message"] as string;
 }
@@ -196,6 +80,7 @@
                                 <button class="btn btn-success mt-3" type="submit" asp-page-handler="PlaceOrder" asp-route-singleProductId="@op.Product_id" name="orderType" value="single">
                                     Place Order
                                 </button>
+
                             </div>
                         </div>
                     </div>

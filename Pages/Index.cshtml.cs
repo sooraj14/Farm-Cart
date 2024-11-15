@@ -80,6 +80,7 @@ namespace FarmCart.Pages
 
         public IActionResult OnPost(int productId)
         {
+
             var product = _context.producttable.Find(productId);
 
             if (product == null)
