@@ -1,4 +1,4 @@
-﻿@page
+﻿@* @page
 @model FarmCart.Pages.OrderPlacedModel
 @{
 }
@@ -13,17 +13,30 @@
     <div class="confetti" style="left: 80%; animation-delay: 3.5s"></div>
     <div class="confetti" style="left: 90%; animation-delay: 4s"></div>
 
+
     <div class="celebration-container">
         <div class="success-icon"></div>
         <h1>🎉 Order Confirmed! 🎉</h1>
 
-        @if (Model.OrderDetails != null)
+    @if(Model.OrderDetails != null)
         {
             <div class="order-details">
                 <p><span class="detail-label">Customer ID:</span> @Model.OrderDetails.cust_id</p>
                 <p><span class="detail-label">Order Date:</span> @Model.OrderDetails.ord_date.ToString("MM/dd/yyyy")</p>
                 <p><span class="detail-label">Product:</span> @Model.OrderDetails.products</p>
                 <p><span class="detail-label">Total Amount:</span> $@Model.OrderDetails.total_amount</p>
+
+@if(Model.OrderDetails != null)
+{
+    <div class="container order-summary-container ">
+        <div class="card order-summary-card mb-5 shadow-sm rounded">
+            <div class="card-body">
+                <h4 class="order-id">CustomerID: @Model.OrderDetails.cust_id</h4>
+                <p><strong>Order Date:</strong> @Model.OrderDetails.ord_date.ToString("MM/dd/yyyy")</p>
+                <p><strong>Product:</strong> @Model.OrderDetails.products</p>
+                <p><strong>Total Amount:</strong> <span class="text-success fw-bold">$@Model.OrderDetails.total_amount</span></p>
+               
+
             </div>
 
             <div class="reward-box">
@@ -62,3 +75,90 @@
         }
     });
 </script>
+ *@
+
+
+@page
+@model FarmCart.Pages.OrderPlacedModel
+@{
+}
+
+<div class="confetti" style="left: 10%; animation-delay: 0s"></div>
+<div class="confetti" style="left: 20%; animation-delay: 0.5s"></div>
+<div class="confetti" style="left: 30%; animation-delay: 1s"></div>
+<div class="confetti" style="left: 40%; animation-delay: 1.5s"></div>
+<div class="confetti" style="left: 50%; animation-delay: 2s"></div>
+<div class="confetti" style="left: 60%; animation-delay: 2.5s"></div>
+<div class="confetti" style="left: 70%; animation-delay: 3s"></div>
+<div class="confetti" style="left: 80%; animation-delay: 3.5s"></div>
+<div class="confetti" style="left: 90%; animation-delay: 4s"></div>
+
+<div class="celebration-container">
+    <div class="success-icon"></div>
+    <h1>🎉 Order Confirmed! 🎉</h1>
+
+    @if (Model.OrderDetails != null)
+    {
+        <div class="order-details">
+            <p><span class="detail-label">Customer ID:</span> @Model.OrderDetails.cust_id</p>
+            <p><span class="detail-label">Order Date:</span> @Model.OrderDetails.ord_date.ToString("MM/dd/yyyy")</p>
+            <p><span class="detail-label">Product:</span> @Model.OrderDetails.products</p>
+            <p><span class="detail-label">Total Amount:</span> $@Model.OrderDetails.total_amount</p>
+        </div>
+
+        <div class="reward-box">
+            <h3>🎁 Rewards Earned!</h3>
+            <p>You've earned @(Math.Floor(Model.OrderDetails.total_amount * 0.02)) points on this purchase!</p>
+            <p>Points can be used on your next purchase</p>
+        </div>
+    }
+    else
+    {
+        <p>Order details not found.</p>
+    }
+
+    <a href="/" class="continue-btn">Continue Shopping</a>
+</div>
+
+<audio id="orderConfirmationAudio" src="~/Audio/order-confirmation.mp3.mp3" preload="auto"></audio>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const audio = document.getElementById('orderConfirmationAudio');
+
+
+        audio.muted = true;
+
+        audio.play().then(() => {
+
+            audio.muted = false;
+        }).catch(error => {
+            console.error('Error playing audio:', error);
+        });
+
+        if (!sessionStorage.getItem('orderConfirmed')) {
+
+            sessionStorage.setItem('orderConfirmed', 'true');
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

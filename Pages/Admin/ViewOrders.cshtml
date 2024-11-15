@@ -14,7 +14,11 @@
     <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <div class="container " style="width:800px; margin-left:200px; margin-right:200px; margin-top:60px;" >
 
+        <div>
+            <h3 class="text-center pb-3">Order Details</h3>
+        </div>
 <table class="border-2 table table-striped table-striped">
     <thead class="border-3 ">
         <tr class="text-center"> 
@@ -34,7 +38,7 @@
 
 
         @{
-            foreach (var o in Model.ord)
+            foreach (var o in @Model.ord)
             {
                 <tr class="text-center">
                     <td class="border-3 p-1 ">@o.cust_id</td>
@@ -53,6 +57,7 @@
 
     }
     </table>
+    </div>
    
 
     </body>

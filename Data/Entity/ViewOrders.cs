@@ -5,7 +5,7 @@ namespace FarmCart.Data.Entity
     public class ViewOrders
     {
         [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
         public int cust_id { get; set; }
         public int product_id { get; set; }
         public int product_price { get; set; }

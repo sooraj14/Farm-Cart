@@ -31,8 +31,7 @@ namespace FarmCart.Pages.Cart
                 return RedirectToPage("/Login");
             }
 
-            Product = _context.producttable
-                .Where(p => p.product_id == product_id)
+            Product = _context.producttable.Where(p => p.product_id == product_id)
                 .Select(p => new OrderProductJoin
                 {
                     Product_id = p.product_id,

@@ -11,10 +11,10 @@
 </head>
 <body> 
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow mb-0">
-            <div class="container ">
+        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow mb-3" style="background: linear-gradient(to left, rgba(0, 255, 127, 0.1), rgba(124, 252, 0, 0.9));  ">
+            <div class="container" style="">
                 
-                <img src="~/Logo.png" alt="Alternate Text" style="width:200px; height:auto;"/>
+                <img src="~/Logo.png" alt="Alternate Text" style=" max-width: 200px; height:auto; margin-left: 10px;" />
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,23 +22,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex w-200 ">
                     <ul class="navbar-nav p-2">
                         <li class="nav-item me-3">
-                            <a class="nav-link text-white fs-4 icon-link icon-link-hover text-white "asp-area="" asp-page="/Admin/AdminDashboard">Dashboard</a>
+                            <a class="nav-link text-white fs-5 icon-link icon-link-hover text-white "asp-area="" asp-page="/Admin/AdminDashboard">Dashboard</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link text-white fs-4 icon-link icon-link-hover text-white " asp-area="" asp-page="/Admin/ViewProductcshtml">Product</a>
+                            <a class="nav-link text-white fs-5 icon-link icon-link-hover text-white " asp-area="" asp-page="/Admin/ViewProductcshtml">Product</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link text-white fs-4 icon-link icon-link-hover text-white " asp-area="" asp-page="/Admin/Viewusers">Users</a>
+                            <a class="nav-link text-white fs-5 icon-link icon-link-hover text-white " asp-area="" asp-page="/Admin/Viewusers">Users</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link text-white fs-4 icon-link icon-link-hover text-white " asp-area="" asp-page="/Admin/ViewSuppliers">Suppliers</a>
+                            <a class="nav-link text-white fs-5 icon-link icon-link-hover text-white " asp-area="" asp-page="/Admin/ViewSuppliers">Suppliers</a>
                         </li>
 
                         <li class="nav-item me-3 ">
-                            <a class="nav-link text-white fs-4 icon-link icon-link-hover " asp-area="" asp-page="/Admin/ViewOrders">Orders</a>
+                            <a class="nav-link text-white fs-5 icon-link icon-link-hover " asp-area="" asp-page="/Admin/ViewOrders">Orders</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class=" nav-link text-white fs-4 icon-link icon-link-hover" asp-area="" asp-page="/Index">Log-out</a>
+                            <a class=" nav-link text-white fs-5 icon-link icon-link-hover" asp-area="" asp-page="/Index">Log-out</a>
                         </li>
                     </ul>
                 </div>
@@ -55,11 +55,7 @@
         </main>
     
 
-    <footer class="border-top footer text-muted bg-success">
-        <div class="container text-white fs-5 text-center">
-            &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+  
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -67,4 +63,9 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+<footer class="border-top footer text-black bg-success" style="background: linear-gradient(to left, rgba(0, 255, 127, 0.1), rgba(124, 252, 0, 0.9));">
+    <div class="container text-white fs-5 text-center">
+        &copy; 2024 - FarmSquare - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </div>
+</footer>
 </html>

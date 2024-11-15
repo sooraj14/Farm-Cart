@@ -27,6 +27,7 @@ namespace FarmCart.Pages.Admin
         {
             if ((adminclass.Adminemail.Equals("admin@123")) && (adminclass.Adminpassowrd.Equals("admin")))
             {
+                HttpContext.Session.SetInt32("Athuentication", 1);
                 return RedirectToPage("AdminDashboard");
             }
             else
