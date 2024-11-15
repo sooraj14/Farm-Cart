@@ -4,6 +4,7 @@ using FarmCart.Pages.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
 
 namespace FarmCart.Pages.Cart
 {
@@ -18,6 +19,9 @@ namespace FarmCart.Pages.Cart
         public CartDetails carstd { get; set; } = new CartDetails();
         public List<Product> prodlist { get; set; } = new List<Product>();
         public Product SingleProduct { get; set; }
+
+  
+       
         public bool IsBuyNow { get; set; }
 
         public void OnGet(int product_id, bool buyNow = false)
@@ -70,7 +74,7 @@ namespace FarmCart.Pages.Cart
             int? cust_id = HttpContext.Session.GetInt32("cust_id");
             if (!cust_id.HasValue)
             {
-                return RedirectToPage("/Login");
+                return RedirectToPage("/Index");
             }
 
             var cartItem = new Data.Entity.Cart
@@ -81,7 +85,11 @@ namespace FarmCart.Pages.Cart
                 is_buy_now = true
             };
 
+         
+
             _context.Carts.Add(cartItem);
+          
+            
             _context.SaveChanges();
 
             return RedirectToPage("/Cart/BuyNow", new { product_id = product_id });

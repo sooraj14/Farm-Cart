@@ -1,158 +1,111 @@
-﻿@page
-@model FarmCart.Pages.Admin.AdminDashboardModel
-@{
+﻿
 
 
+     @page
+   @model FarmCart.Pages.Admin.AdminDashboardModel
+   @{
+       
+   }
 
-}
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Admin Dashboard</title>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   </head>
+   <body>
+
+       <div class="container-fluid">
+             <nav style="background-color: whitesmoke;" class="d-flex flex-column flex-md-row">
+               <div class="card mb-3" style="max-width: 14rem;">
+                   <img src="~/Images/sundarpic.jpg" class="card-img-top" alt="Admin Image">
+                   <div class="card-body" style="background-color: ghostwhite;color:white;">
+                       <h5 class="card-title text-black">Admin-Details</h5>
+                       <p class="card-text text-black">Name : Swarup</p>
+                       <p class="card-text text-black">Email : Swarup@gmail.com</p>
+                       <p class="card-text text-black">Contact : 6362295412</p>
+                       <a href="#" class="btn btn-primary">Update</a>
+                   </div>
+               </div>
+
+               <div class="col-md-8 mt-4 mt-4 " style="padding-left:150px;">
+                   <canvas id="productChart" width="400" height="200"></canvas>
+               </div>
+           </nav>
+        <div class="container-fluid" style="height:300px; margin-top:15px;  margin-bottom:15px; background-color:whitesmoke">
+           <div class="d-flex flex-wrap justify-content-between p-5">
+             
+               <div class="col-md-3 mb-4">
+                   <div class="card text-white bg-primary shadow-lg p-3 rounded">
+                       <div class="card-body text-center">
+                           <h5 class="card-title">Total Users</h5>
+                           <p class="card-text display-4">@Model.totalusers</p>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="col-md-3 mb-4">
+                   <div class="card text-white bg-success shadow-lg p-3 rounded">
+                       <div class="card-body text-center">
+                           <h5 class="card-title">Total Orders</h5>
+                           <p class="card-text display-4">@Model.totalcountoforders</p>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="col-md-3 mb-4">
+                   <div class="card text-white bg-danger shadow-lg p-3 rounded">
+                       <div class="card-body text-center">
+                           <h5 class="card-title">Total Suppliers</h5>
+                           <p class="card-text display-4">@Model.totalsupplier</p>
+                       </div>
+                   </div>
+               </div>
+
+           
+
+               <div class="col-md-3 mb-4">
+                   <div class="card text-white bg-success shadow-lg p-3 rounded">
+                       <div class="card-body text-center">
+                           <h5 class="card-title">Total Transactions</h5>
+                           <p class="card-text display-4">@Model.totaltransaction</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+        </div>
+
+       <script>
+           const productNames = @Html.Raw(Json.Serialize(Model.productname));
+           const productQuantities = @Html.Raw(Json.Serialize(Model.productsale));
+
+           const ctx = document.getElementById('productChart').getContext('2d');
+           new Chart(ctx, {
+               type: 'line', // Chart type (bar, line, pie, etc.)
+               data: {
+                   labels: productNames,
+                   datasets: [{
+                       label: 'Product Quantities',
+                       data: productQuantities,
+                        backgroundColor: 'rgba(50, 205, 50, 0.2)', // Lime green with 20% opacity
+                        borderColor: 'rgba(50, 205, 50, 1)', // Lime green with full opacity for the border
+                       borderWidth: 3
+                   }]
+               },
+               options: {
+                   scales: {
+                       y: {
+                           beginAtZero: true
+                       }
+                   }
+               }
+           });
+       </script>
+   </body>
+   </html>
 
  
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        .sidebar {
-            height: 100vh;
-            background-color: #343a40;
-            color: #fff;
-        }
-
-        .sidebar a {
-            color: #adb5bd;
-        }
-
-        .sidebar a:hover {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .card {
-            margin: 20px 0;
-        }
-
-        .dashboard-header {
-            background-color: #f96363;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class=" container-fluid ">
-        <div class="row">
-            <!-- Sidebar -->
-        @*     <nav class="col-md-2 sidebar py-4">
-                <h4 class="text-center">Admin Panel</h4>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">All Posts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Add Post</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Comments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Tags</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Settings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Sign Out</a>
-                    </li>
-                </ul>
-            </nav> *@
-
-            <!-- Main Content -->
-            <main class="col mb-5 p-5" >
-                <div class="dashboard-header text-white bg-black">
-                    <h2 class="text-center">FARMCART-STATICS</h2>
-                </div>
-                <div class="row">
-                    
-                    <div class="col-md-3">
-                        <div class="card text-white bg-primary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Users</h5>
-                                <p class="card-text display-4">@Model.totalusers</p>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <div class="col-md-3">
-                        <div class="card text-white bg-success shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                            <div class="card-body">
-                                <h5 class="card-title">Toatl-Orders</h5>
-                                <p class="card-text display-4">@Model.totalcountoforders</p>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <div class="col-md-3">
-                        <div class="card text-white bg-danger shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                            <div class="card-body">
-                                <h5 class="card-title">Toatol-Supplier</h5>
-                                <p class="card-text display-4">@Model.totalsupplier</p>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <div class="col-md-3 ">
-                        <div class="card text-white bg-primary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                            <div class="card-body ">
-                                <h5 class="card-title">Total-Product</h5>
-                                <p class="card-text display-4">@Model.totalcountofproduct</p>
-                       </div>
-                        </div>
-                    </div>
-                  
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body ">
-                                <h5 class="card-title">Hello Admin</h5>
-                                <p class="card-text ">Please check whatsapp</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Hello Admin</h5>
-                                <p class="card-text">Please Check the Mail</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-</body>
-</html>
-
-
-
-
-   
-
-
-

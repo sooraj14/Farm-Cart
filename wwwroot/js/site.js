@@ -2,8 +2,8 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-<<<<<<< HEAD
- 
+
+
        
         function toggleAllProducts() {
             const selectAllCheckbox = document.getElementById('selectAll');
@@ -40,18 +40,4 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateBulkOrderButton();
         });
-=======
-//function toggledown() {
-//    const dropdownmenu = document.getElementById('dropdownmenu');
-//    const isvisible = dropdownmenu.style.display === 'block';
-//    dropdownmenu.style.display = isvisble ? 'none' : 'block';
-//}
-//window.addEventListener('click', function (event)){
-//    const dropdownmenu = document.getElementById('dropdownmenu');
-//    const button = document.querySelector('dropdown-btn');
-//    if (!button.contains(event.target) && !dropdownmenu.contains(event.target))
-//    {
-//        dropdownmenu.style.display = 'none';
-//    }
-//}
->>>>>>> V0-sooraj
+
