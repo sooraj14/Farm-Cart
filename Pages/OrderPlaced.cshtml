@@ -3,76 +3,62 @@
 @{
 }
 
-<h2 class="text-center my-4">Order Confirmed!</h2>
+    <div class="confetti" style="left: 10%; animation-delay: 0s"></div>
+    <div class="confetti" style="left: 20%; animation-delay: 0.5s"></div>
+    <div class="confetti" style="left: 30%; animation-delay: 1s"></div>
+    <div class="confetti" style="left: 40%; animation-delay: 1.5s"></div>
+    <div class="confetti" style="left: 50%; animation-delay: 2s"></div>
+    <div class="confetti" style="left: 60%; animation-delay: 2.5s"></div>
+    <div class="confetti" style="left: 70%; animation-delay: 3s"></div>
+    <div class="confetti" style="left: 80%; animation-delay: 3.5s"></div>
+    <div class="confetti" style="left: 90%; animation-delay: 4s"></div>
 
-@if (Model.OrderDetails != null)
-{
-    <div class="container order-summary-container">
-        <div class="card order-summary-card mb-5 shadow-sm rounded">
-            <div class="card-body">
-                <h4 class="order-id">CustomerID: @Model.OrderDetails.cust_id</h4>
-                <p><strong>Order Date:</strong> @Model.OrderDetails.ord_date.ToString("MM/dd/yyyy")</p>
-                <p><strong>Product:</strong> @Model.OrderDetails.products</p>
-                <p><strong>Total Amount:</strong> <span class="text-success fw-bold">$@Model.OrderDetails.total_amount</span></p>
-               
+    <div class="celebration-container">
+        <div class="success-icon"></div>
+        <h1>🎉 Order Confirmed! 🎉</h1>
+
+        @if (Model.OrderDetails != null)
+        {
+            <div class="order-details">
+                <p><span class="detail-label">Customer ID:</span> @Model.OrderDetails.cust_id</p>
+                <p><span class="detail-label">Order Date:</span> @Model.OrderDetails.ord_date.ToString("MM/dd/yyyy")</p>
+                <p><span class="detail-label">Product:</span> @Model.OrderDetails.products</p>
+                <p><span class="detail-label">Total Amount:</span> $@Model.OrderDetails.total_amount</p>
             </div>
-        </div>
 
-  
+            <div class="reward-box">
+                <h3>🎁 Rewards Earned!</h3>
+                <p>You've earned @(Math.Floor(Model.OrderDetails.total_amount * 0.02)) points on this purchase!</p>
+                <p>Points can be used on your next purchase</p>
+            </div>
+        }
+        else
+        {
+            <p>Order details not found.</p>
+        }
+
+        <a href="/" class="continue-btn">Continue Shopping</a>
     </div>
-}
-else
-{
-    <p class="text-center text-danger">Order details not found.</p>
-}
 
-<div class="text-center mt-5">
-    <a href="/" class="btn btn-primary">Continue Shopping</a>
-</div>
+<audio id="orderConfirmationAudio" src="~/Audio/order-confirmation.mp3.mp3" preload="auto"></audio>
 
-<style>
-    .order-summary-container {
-        max-width: 900px;
-        margin: auto;
-    }
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const audio = document.getElementById('orderConfirmationAudio');
 
-    .order-summary-card, .order-item-card {
-        border: 0;
-    }
+        
+        audio.muted = true;
 
-    .order-item-card {
-        background-color: #f9f9f9;
-    }
+        audio.play().then(() => {
+         
+            audio.muted = false;
+        }).catch(error => {
+            console.error('Error playing audio:', error);
+        });
 
-    .order-id {
-        font-weight: 700;
-        color: #4CAF50;
-    }
-</style>
-
-
-
-
-@*  <h3 class="text-center my-3">Order Items</h3>
-
-        @if (Model.OrderItems != null && Model.OrderItems.Any())
-        {
-            <div class="row g-3">
-                @foreach (var item in Model.OrderItems)
-                {
-                    <div class="col-md-4">
-                        <div class="card order-item-card shadow-sm rounded">
-                            <div class="card-body">
-                                <p><strong>Quantity:</strong> @item.product_quantity</p>
-                                <p><strong>Price per item:</strong> $@item.product_price</p>
-                                <p><strong>Total:</strong> $@(item.product_price * item.product_quantity)</p>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        } *@
-@*  else
-        {
-            <p class="text-center text-muted">No items found in this order.</p>
-        } *@
+        if (!sessionStorage.getItem('orderConfirmed')) {
+           
+            sessionStorage.setItem('orderConfirmed', 'true');
+        }
+    });
+</script>

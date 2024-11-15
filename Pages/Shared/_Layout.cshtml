@@ -18,8 +18,8 @@
 
     
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow mb-3">
-            <div class="container ">
+        <nav class="navbar navbar-expand-sm navbar-light bg-success border-bottom box-shadow ">
+            <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index"></a>
 
                   @* <img src="./Images/Logo.png" alt="Alternate Text" style="width: 150px; height: 70px;" /> *@
@@ -49,21 +49,29 @@
                             <a class="nav-link text-white fs-5" asp-area="" asp-page="/Customer/CustomerLogin">Customer</a>
                         </li>                                  
                     </ul>           
-                    <form id="searchForm" asp-controller="Products" asp-action="SearchProducts" method="post" class="d-flex mx-auto">
-                        <div class="input-group">
-                            <input id="searchString" type="text" class="form-control" placeholder="Search products" name="searchQuery" style="min-width: 500px;" />
-                            <button class="btn btn-primary" type="submit" id="searchBtn"><i class="fa fa-search"></i> Search</button>
-                        </div>
-                    </form>               
+                   <form id="searchForm" asp-page="/Search" method="get" class="d-flex mx-auto">
+                      <div class="input-group">
+                      <input id="searchString" type="text" class="form-control" placeholder="Search products" name="query" style="min-width: 500px;" />
+                      <button class="btn btn-primary" type="submit" id="searchBtn"><i class="fa fa-search"></i> Search</button>
+                      </div>
+                   </form>
+           
                 </div>
             </div>
             <div class="w-25">
             <ul class="navbar-nav ms-auto ">
-                <li class="nav-item">
-                    <a class="nav-link text-dark position-relative" asp-area="" asp-controller="Cart" asp-action="Index">
-                        <img src="~/buy.png" alt="Cart" style="width: 24px; height: 24px; margin-right: 5px;"> <i class="fa fa-shopping-cart"></i>
-                    </a>
-                </li>
+               @{
+    
+                   var isCustomerLoggedIn = Context.Session.GetInt32("cust_id") != null;
+                }
+
+            <li class="nav-item">
+                 <a class="nav-link text-dark position-relative" 
+                 href="@(isCustomerLoggedIn ? Url.Page("/Cart/CustomerCartDetails") : Url.Page("/Customer/CustomerLogin"))">
+                  <img src="~/buy.png" alt="Cart" style="width: 24px; height: 24px; margin-right: 5px;">
+                 </a>
+            </li>
+
                 @{
                     @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
                     int? sessionId = HttpContextAccessor.HttpContext.Session.GetInt32("cust_id");
@@ -90,11 +98,11 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
+   
 
     <footer class="border-top footer text-black bg-success">
         <div class="container">

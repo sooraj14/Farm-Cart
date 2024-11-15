@@ -44,9 +44,9 @@ namespace FarmCart.Pages.Customer
             _context.Customers.Add(newCustomer);
             await _context.SaveChangesAsync();
 
-            
-            TempData["Message"] = "Customer registered successfully!";
-            return RedirectToPage("/Customer/Customer");
+           /* 
+            TempData["Message"] = "Customer registered successfully!";*/
+            return RedirectToPage("/Customer/CustomerLogin");
         }
     }
 }

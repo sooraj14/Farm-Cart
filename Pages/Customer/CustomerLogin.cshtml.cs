@@ -30,18 +30,17 @@ namespace FarmCart.Pages.Customer
             {
                 return Page();
             }
-         
+
             var user = _context.Customers
                 .FirstOrDefault(u => u.CustEmail == Login.Email && u.CustPassword == Login.Password);
 
-            HttpContext.Session.SetInt32("cust_id", user.CustId);
             if (user == null)
             {
                 TempData["ErrorMessage"] = "Invalid email or password.";
-                return RedirectToPage();  
+                return RedirectToPage(); 
             }
 
-
+            HttpContext.Session.SetInt32("cust_id", user.CustId);
             TempData["SuccessMessage"] = "Login successful!";
             return RedirectToPage("/Index");
         }

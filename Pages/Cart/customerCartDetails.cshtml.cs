@@ -60,7 +60,6 @@ namespace FarmCart.Pages.Cart
                 return RedirectToPage("/Login");
             }
 
-            // Get selected cart items
             var cartItems = _context.Carts
                 .Where(c => c.cust_id == cust_id && SelectedProducts.Contains(c.product_id))
                 .ToList();
@@ -70,7 +69,6 @@ namespace FarmCart.Pages.Cart
                 return RedirectToPage("/Cart");
             }
 
-            // Verify product quantities and availability
             foreach (var item in cartItems)
             {
                 var product = _context.producttable.FirstOrDefault(p => p.product_id == item.product_id);
@@ -81,7 +79,6 @@ namespace FarmCart.Pages.Cart
                 }
             }
 
-            // Create order
             var order = new Orders
             {
                 cust_id = cust_id.Value,
@@ -96,7 +93,6 @@ namespace FarmCart.Pages.Cart
             _context.ordertable.Add(order);
             _context.SaveChanges();
 
-            // Create order items and update product quantities
             Random rand = new Random();
             foreach (var item in cartItems)
             {
@@ -105,7 +101,6 @@ namespace FarmCart.Pages.Cart
 
                 if (product != null)
                 {
-                    // Update product quantity
                     product.product_quantity -= selectedQuantity;
 
                     var orderItem = new OrderItem
@@ -122,7 +117,7 @@ namespace FarmCart.Pages.Cart
                 }
             }
 
-            // Remove processed items from cart
+          
             _context.Carts.RemoveRange(cartItems);
             _context.SaveChanges();
 

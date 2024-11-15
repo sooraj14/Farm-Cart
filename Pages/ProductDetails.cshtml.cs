@@ -28,5 +28,35 @@ namespace FarmCart.Pages
 
             return Page();
         }
+        public IActionResult OnPostCart(int product_id)
+        {
+            int? customerId = HttpContext.Session.GetInt32("cust_id");
+            if (customerId==null)
+            {
+                return RedirectToPage("/Customer/CustomerLogin");
+            }
+
+            var cartItem = _context.Carts.FirstOrDefault(c => c.cust_id == customerId && c.product_id == product_id);
+
+            if (cartItem != null)
+            {
+                cartItem.quantity += 1;
+            }
+            else
+            {
+                _context.Carts.Add(new FarmCart.Data.Entity.Cart
+                {
+                    cust_id = customerId.Value,
+                    product_id = product_id,
+                    quantity = 1
+                });
+
+            }
+
+            _context.SaveChanges();
+            return RedirectToPage("/Cart/customerCartDetails");
+        }
+
+
     }
 }

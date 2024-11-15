@@ -2,94 +2,197 @@
 @model FarmCart.Pages.IndexModel
 @{
     ViewData["Title"] = "Home page";
-        
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+<section class="hero-section">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-lg-6 pt-5 mt-5">
+                <h2 class="display-1 ls-1">
+                   <span class="fw-bold" style="color: limegreen;">Organic</span> Products and Foods at your 
+                    <span class="fw-bold">Doorsteps</span>
+                </h2>
+                <p class="fs-4">Products directly from Farm.</p>
+                
+                <div class="d-flex gap-3">
+                    <a href="#products" class="btn text-uppercase fs-6 rounded-pill px-4 py-3 mt-3" style="background-color: limegreen; color: white;">Start Shopping</a>
+                    <a href="@Url.Page("/AboutUs")" class="btn btn-dark text-uppercase fs-6 rounded-pill px-4 py-3 mt-3">About Us</a>
+                </div>
+
+                <div class="row my-5">
+                    <div class="col">
+                        <div class="row text-dark">
+                            <div class="col-auto">
+                                <p class="fs-1 fw-bold lh-sm mb-0">14k+</p>
+                            </div>
+                            <div class="col">
+                                <p class="text-uppercase lh-sm mb-0">Product Varieties</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row text-dark">
+                            <div class="col-auto">
+                                <p class="fs-1 fw-bold lh-sm mb-0">50k+</p>
+                            </div>
+                            <div class="col">
+                                <p class="text-uppercase lh-sm mb-0">Happy Customers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row text-dark">
+                            <div class="col-auto">
+                                <p class="fs-1 fw-bold lh-sm mb-0">10+</p>
+                            </div>
+                            <div class="col">
+                                <p class="text-uppercase lh-sm mb-0">Store Locations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-3 g-0 justify-content-center">
+            <div class="col">
+               <div class="card border-0 rounded-0 p-4 text-light" style="background-color: limegreen;">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <svg width="60" height="60">
+                                <use xlink:href="#fresh"></use>
+                            </svg>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body p-0">
+                                <h5 class="text-light">Fresh from farm</h5>
+                               <p class="card-text" style="color: black;">Focus on reducing waste</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 bg-secondary rounded-0 p-4 text-light">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <svg width="60" height="60">
+                                <use xlink:href="#organic"></use>
+                            </svg>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body p-0">
+                                <h5 class="text-light">100% Organic</h5>
+                                <p class="card-text" style="color: black;">Free from synthetic additives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 bg-danger rounded-0 p-4 text-light">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <svg width="60" height="60">
+                                <use xlink:href="#delivery"></use>
+                            </svg>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body p-0">
+                                <h5 class="text-light">Free delivery</h5>
+                                <p class="card-text" style="color: black;">Delivered in estimated time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="~/Farm1.png" class="d-block w-100" alt="Farm Image 1">
-        </div>
-        <div class="carousel-item">
-            <img src="~/Farm2.png" class="d-block w-100" alt="Farm Image 2">
-        </div>
-        <div class="carousel-item">
-            <img src="~/Farm3.png" class="d-block w-100" alt="Farm Image 3">
-        </div>
-        <div class="carousel-item">
-            <img src="~/Farm4.png" class="d-block w-100" alt="Farm Image 4">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
-
-<div class="container mt-5">
+</section>
+<div class="container mt-5" id="products">
     <h2 class="text-center">Categories</h2>
     <div class="row justify-content-center">
         <div class="col-auto text-center">
-            <a href="@Url.Page("/Category", new { categoryName = "Growth Promoters" })">
+            <a href="@Url.Page("/Category", new { categoryName = "Growth Promoters" })" style="text-decoration: none;color:limegreen;">
                 <div class="card category-card shadow-sm rounded-circle">
                     <img src="~/Growth Promoters.png" class="card-img-top img-fluid rounded-circle" alt="Category 1">
                 </div>
-                <h5 class="card-title mt-2">Growth Promoters</h5>
+                <h5 class="card-text mt-2">Growth Promoters</h5>
             </a>
         </div>
         <div class="col-auto text-center">
-            <a href="@Url.Page("/Category", new { categoryName = "Vegetable Seeds" })">
+            <a href="@Url.Page("/Category", new { categoryName = "Vegetable Seeds" })" style="text-decoration: none;color:limegreen;">
                 <div class="card category-card shadow-sm rounded-circle">
                     <img src="~/veg seeds.png" class="card-img-top img-fluid rounded-circle" alt="Category 2">
                 </div>
-                <h5 class="card-title mt-2">Vegetable Seeds</h5>
+                <h5 class="card-text mt-2">Vegetable Seeds</h5>
             </a>
         </div>
         <div class="col-auto text-center">
-            <a href="@Url.Page("/Category", new { categoryName = "Nutrients" })">
+            <a href="@Url.Page("/Category", new { categoryName = "Nutrients" })" style="text-decoration: none;color:limegreen;">
                 <div class="card category-card shadow-sm rounded-circle">
                     <img src="~/Nutrients.png" class="card-img-top img-fluid rounded-circle" alt="Category 3">
                 </div>
-                <h5 class="card-title mt-2">Nutrients</h5>
+                <h5 class="card-text mt-2">Nutrients</h5>
             </a>
         </div>
         <div class="col-auto text-center">
-            <a href="@Url.Page("/Category", new { categoryName = "Fungicides" })">
+            <a href="@Url.Page("/Category", new { categoryName = "Fungicides" })" style="text-decoration: none;color:limegreen;">
                 <div class="card category-card shadow-sm rounded-circle">
                     <img src="~/Fungicides.png" class="card-img-top img-fluid rounded-circle" alt="Category 4">
                 </div>
-                <h5 class="card-title mt-2">Fungicides</h5>
+                <h5 class="card-text mt-2">Fungicides</h5>
             </a>
         </div>
         <div class="col-auto text-center">
-            <a href="@Url.Page("/Category", new { categoryName = "Herbicides" })">
+            <a href="@Url.Page("/Category", new { categoryName = "Herbicides" })" style="text-decoration: none;color:limegreen;">
                 <div class="card category-card shadow-sm rounded-circle">
                     <img src="~/Herbicide.png" class="card-img-top img-fluid rounded-circle" alt="Category 5">
                 </div>
-                <h5 class="card-title mt-2">Herbicides</h5>
+                <h5 class="card-text mt-2">Herbicides</h5>
+            </a>
+        </div>
+        <div class="col-auto text-center">
+            <a href="@Url.Page("/Category", new { categoryName = "Fruits" })" style="text-decoration: none;color:limegreen;">
+                <div class="card category-card shadow-sm rounded-circle">
+                    <img src="~/fruit.jpg" class="card-img-top img-fluid rounded-circle" alt="Category 6">
+                </div>
+                <h5 class="card-text mt-2">Fruits</h5>
+            </a>
+        </div>
+        <div class="col-auto text-center">
+            <a href="@Url.Page("/Category", new { categoryName = "Vegetables" })" style="text-decoration: none;color:limegreen;">
+                <div class="card category-card shadow-sm rounded-circle">
+                    <img src="~/vegetable.jpg" class="card-img-top img-fluid rounded-circle" alt="Category 7">
+                </div>
+                <h5 class="card-text mt-2">Vegetables</h5>
+            </a>
+        </div>
+        <div class="col-auto text-center">
+            <a href="@Url.Page("/Category", new { categoryName = "Eggs" })" style="text-decoration: none;color:limegreen;">
+                <div class="card category-card shadow-sm rounded-circle">
+                    <img src="~/egggs.jpg" class="card-img-top img-fluid rounded-circle" alt="Category 8">
+                </div>
+                <h5 class="card-text mt-2">Eggs</h5>
+            </a>
+        </div>
+        <div class="col-auto text-center">
+            <a href="@Url.Page("/Category", new { categoryName = "Machinery" })" style="text-decoration: none;color:limegreen;">
+                <div class="card category-card shadow-sm rounded-circle">
+                    <img src="~/machi.jpg" class="card-img-top img-fluid rounded-circle" alt="Category 9">
+                </div>
+                <h5 class="card-text mt-2">Machinery</h5>
             </a>
         </div>
     </div>
 </div>
 
 
-
-       
-<div class="container mt-5">
+ <div class="container mt-5">
     <h2 class="text-center">Our Farm Products</h2>
     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xxl-5 g-3">
 
@@ -104,14 +207,10 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">@product.product_name</h5>
                             <p class="card-text fw-bold">@product.brand_name</p>
-                            <p class="card-text">@product.product_description</p>
                             <p class="card-price fw-bold">$@product.product_price</p>
                             <div class="d-flex justify-content-center">
-                               
-                                <button type="submit" name="action" value="addToCart" class="btn btn-primary me-2">Add to Cart</button>
-                             
-                                <button type="submit" name="action" value="placeProduct" class="btn btn-primary me-2">Place Product</button>
-
+                                
+                                <button type="submit" name="action" value="addToCart" class="btn  view-product-btn" style="background-color:limegreen; color:white;">View Product</button>
                                 <input type="hidden" name="productId" value="@product.product_id" />
                             </div>
                         </div>
@@ -121,97 +220,190 @@
         }
     </div>
 </div>
+<section class="py-5">
+  <div class="container-lg">
+    <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5">
+    
+      <div class="col">
+        <div class="card mb-3 border border-dark-subtle p-3">
+          <div class="text-dark mb-3">
+            <i class="bi bi-truck icon-large"></i> 
+          </div>
+          <div class="card-body p-0">
+            <h5>Free delivery</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col">
+        <div class="card mb-3 border border-dark-subtle p-3">
+          <div class="text-dark mb-3">
+            <i class="bi bi-lock icon-large"></i> 
+          </div>
+          <div class="card-body p-0">
+            <h5>100% secure payment</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col">
+        <div class="card mb-3 border border-dark-subtle p-3">
+          <div class="text-dark mb-3">
+            <i class="bi bi-patch-check icon-large"></i> 
+          </div>
+          <div class="card-body p-0">
+            <h5>Quality guarantee</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="col">
+        <div class="card mb-3 border border-dark-subtle p-3">
+          <div class="text-dark mb-3">
+            <i class="bi bi-currency-dollar icon-large"></i> 
+          </div>
+          <div class="card-body p-0">
+            <h5>Guaranteed savings</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+          </div>
+        </div>
+      </div>
+     
+      <div class="col">
+        <div class="card mb-3 border border-dark-subtle p-3">
+          <div class="text-dark mb-3">
+            <i class="bi bi-gift icon-large"></i> 
+          </div>
+          <div class="card-body p-0">
+            <h5>Daily offers</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <style>
+  
+ 
     .category-card {
         width: 150px;
         height: 150px;
-        background-color: lawngreen;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid black;
         margin: 10px;
         position: relative;
-        padding: 10px;
+        padding: 0;
         text-align: center;
+        background-color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
     }
 
-        .category-card img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
+    .category-card:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4); 
+    }
 
-    .card-title {
+    .category-card img {
+        width: 100%;  
+        height: 100%; 
+      /*   object-fit: cover;  */
+        border-radius: 50%;
+    }
+
+    .card-text {
         font-size: 16px;
         margin-top: 10px;
+        text-decoration: none; 
     }
 
-    .product-card {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        border: 1px solid #ddd;
-        border-radius: 8px;
+
+
+    .ls-1 {
+        letter-spacing: -0.02em;
+    }
+    
+    .hero-section {
+        background-image: url('/banner-1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    .btn-pill {
+        border-radius: 50rem;
+        padding: 0.75rem 1.5rem;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+    }
+
+    .feature-card {
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+   .product-card {
+        width: 220px; 
+        height: 300px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        margin: auto;
         overflow: hidden;
-        background-color: white;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-      
-        min-height: 350px;
     }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
+    
+    .product-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    }
 
+    
+    .view-product-btn {
+        display: none;
+    }
+
+   
+    .product-card:hover .view-product-btn {
+        display: block;
+    }
+
+   
     .product-image-container {
+        position: relative;
+        height: 200px;
         overflow: hidden;
-        height: 200px; 
     }
 
     .product-image {
         width: 100%;
         height: 100%;
+      /*   object-fit: cover;  */
     }
 
+    
     .card-body {
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        padding: 10px;
     }
 
     .card-title {
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-    }
-
-    .card-text {
-        font-size: 14px;
-        color: #666;
+        font-size: 16px;
         margin-bottom: 10px;
     }
 
     .card-price {
-        font-size: 16px;
-        color: #27ae60;
-        margin: 10px 0;
+        font-size: 14px;
+        margin-bottom: 10px;
     }
-
-    .card-body button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 10px;
-    }
-
-        .card-body button.me-2 {
-            width: auto;
-        }
-
     .card-body .d-flex {
         margin-top: auto;
     }

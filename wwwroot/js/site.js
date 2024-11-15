@@ -3,7 +3,36 @@
 
 // Write your JavaScript code.
 
-       
+      
+ const swiper = new Swiper('.category-carousel', {
+    slidesPerView: 5,
+    spaceBetween: 10,
+    navigation: {
+        nextEl: '.category-carousel-next',
+        prevEl: '.category-carousel-prev',
+    },
+    loop: true,
+    breakpoints: {
+        640: { slidesPerView: 3, spaceBetween: 10 },
+        768: { slidesPerView: 4, spaceBetween: 10 },
+        1024: { slidesPerView: 5, spaceBetween: 10 },
+    },
+});
+
+        document.getElementById('quantity').addEventListener('input', function() {
+            const quantity = parseInt(this.value) || 1;
+            const maxQuantity = parseInt(this.max);
+            const price = parseFloat(document.getElementById('productPrice').value);
+
+            if (quantity > maxQuantity) {
+                this.value = maxQuantity;
+                alert('Selected quantity exceeds available stock.');
+            }
+
+            const total = (price * this.value).toFixed(2);
+            document.getElementById('totalPrice').textContent = total;
+        });
+   
         function toggleAllProducts() {
             const selectAllCheckbox = document.getElementById('selectAll');
             const productCheckboxes = document.getElementsByClassName('product-checkbox');
