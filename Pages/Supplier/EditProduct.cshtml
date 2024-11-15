@@ -4,8 +4,8 @@
 }
 <div class="container d-flex align-items-center justify-content-center">
  <div class="w-50 border border-2 p-4 rounded-3 shadow-lg bg-light mt-5">
-     <div class="flex-wrap col-lg-10  ">
-         <form method="post" enctype="multipart/form-data" class="ps-5">
+     <div class="flex-wrap col-lg-10 ">
+         <form method="post" enctype="multipart/form-data" class="ps-5 ">
              <img src="~/Images/lo.png" alt="Alternate Text" style="max-width:200px; height:auto; margin-left:10rem;" />
             <input type="hidden" asp-for="editdata.product_id" />
              <div>
@@ -30,11 +30,11 @@
              </div>
                <div>
                    <label asp-for="editdata.imagefile">Choose File</label>
-                   <input asp-for="editdata.imagefile" class="form-control" type="file" />
+                    <input asp-for="editdata.imagefile" class="form-control" type="file" />
                </div>
              <div>
-                
-                <button type="submit" class="btn "  style=" background-color:limegreen">Update</button>
+
+                    <button type="submit" class="btn mt-3 " style="background-color:limegreen;color:white;">Update</button>
              </div>
          </form>
      </div>

@@ -5,8 +5,15 @@ namespace FarmCart.Pages.Supplier
 {
     public class SupHomeModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet()
         {
+           int? var =  HttpContext.Session.GetInt32("IsAuthenticated");
+            if(var == null)
+            {
+                return RedirectToPage("/Supplier/SupLogin");
+            }
+
+            return Page();
         }
 
     }

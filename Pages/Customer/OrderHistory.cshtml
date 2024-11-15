@@ -1,0 +1,175 @@
+﻿@*  @page
+@model FarmCart.Pages.Customer.OrderHistoryModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FarmSquare</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    
+    <div class="row"> 
+        @{
+            @foreach (var o in @Model.ord)
+            {
+                <div class="card col-6 mb-3 m-4" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="~/Images/@o.imagepath" class="img-fluid rounded-start" alt="@o.product_name" style="height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">@o.product_name</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">@o.brand_name</h6>
+                                <p class="card-text"><strong>Price:</strong> $@o.product_price</p>
+                                <p class="card-text"><strong>Quantity:</strong> @o.product_quantity</p>
+                                <p class="card-text"><strong>Description:</strong> @o.product_description</p>
+                                <p class="card-text"><small class="text-muted">Order No: @o.item_ord_no</small></p>
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-2 m-5">
+                            <!-- Button trigger modal -->
+                            <form method="post">
+                                 <input type="hidden" name="name" asp-route-id="@o.product_id" />
+                                <button type="button" asp-for="@o.product_id class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feedbackModal-@o.product_id">
+                               Feedback
+                            </button>
+                            </form>
+
+                            <!-- Modal -->
+                            <div class="modal  fade " id=" #feedbackModal-@o.product_id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered ">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Feedback</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form method="post">
+                                        <div class="modal-body">
+                                            <textarea asp-for="fe.feed_content" placeholder="Write message" style="width:29rem; height:10rem; border:none;"></textarea>
+                                                <div>
+                                                    
+                                                    <select id="rating" asp-for="fe.rating">
+                                                        <option value="" selected disabled>Select Rating</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+
+                                                <button type="submit" asp-route-product_id="@o.product_id" class="btn btn-primary">Submit</button>
+                                       
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+       
+
+        }
+
+    </div>
+
+</body>
+</html>
+ *@
+
+
+
+ @page
+@model FarmCart.Pages.Customer.OrderHistoryModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FarmSquare</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FarmSquare.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div class="row">
+        @foreach (var o in Model.ord)
+        {
+            <div class="card col-6 mb-3 m-4" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="~/Images/@o.imagepath" class="img-fluid rounded-start" alt="@o.product_name" style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">@o.product_name</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@o.brand_name</h6>
+                            <p class="card-text"><strong>Price:</strong> $@o.product_price</p>
+                            <p class="card-text"><strong>Quantity:</strong> @o.product_quantity</p>
+                            <p class="card-text"><strong>Description:</strong> @o.product_description</p>
+                            <p class="card-text"><small class="text-muted">Order No: @o.item_ord_no</small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 m-5">
+                        
+                        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#feedbackModal-@o.product_id" style="background-color:lime;">
+                            Feedback
+                        </button>
+
+                       
+                        <div class="modal fade" id="feedbackModal-@o.product_id" tabindex="-1" aria-labelledby="feedbackModalLabel-@o.product_id" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="feedbackModalLabel-@o.product_id">Feedback for @o.product_name</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form method="post">
+                                        <!-- Hidden input for product ID -->
+                                        <input type="hidden" name="product_id" value="@o.product_id" />
+                                        <div class="modal-body">
+                                            <textarea asp-for="fe.feed_content" placeholder="Write your feedback" class="form-control"></textarea>
+                                            <div class="mt-3">
+                                                <select asp-for="fe.rating" class="form-select">
+                                                    <option value="" selected disabled>Select Rating</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

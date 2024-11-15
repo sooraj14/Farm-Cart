@@ -3,6 +3,7 @@
 
 // Write your JavaScript code.
 
+
       
  const swiper = new Swiper('.category-carousel', {
     slidesPerView: 5,
@@ -33,6 +34,10 @@
             document.getElementById('totalPrice').textContent = total;
         });
    
+
+
+
+
         function toggleAllProducts() {
             const selectAllCheckbox = document.getElementById('selectAll');
             const productCheckboxes = document.getElementsByClassName('product-checkbox');
@@ -82,4 +87,5 @@
 //        dropdownmenu.style.display = 'none';
 //    }
 //}
+
 

@@ -36,7 +36,9 @@ namespace FarmCart.Pages.Supplier
 
             {
                 HttpContext.Session.SetInt32("sup_id", authUser.sup_id);
-                return RedirectToPage("SupHome");
+                HttpContext.Session.SetInt32("IsAuthenticated", 1);
+
+                    return RedirectToPage("SupHome");
             }
             else
             {

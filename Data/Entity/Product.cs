@@ -19,6 +19,6 @@ namespace FarmCart.Data.Entity
         
         public bool is_available { get; set; }
 
-
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
     }
 }

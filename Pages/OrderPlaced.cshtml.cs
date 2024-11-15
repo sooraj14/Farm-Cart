@@ -26,7 +26,7 @@ namespace FarmCart.Pages
 
 
         public OrderProductJoin orddetails { get;  set; }
-      
+
         public IActionResult OnGet()
 
         {
