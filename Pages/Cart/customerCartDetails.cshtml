@@ -121,6 +121,7 @@
 @model FarmCart.Pages.Cart.customerCartDetailsModel
 @{
     ViewData["Title"] = "Customer Cart Details";
+   
 
    
     var message = TempData["Message"] as string;
@@ -200,6 +201,7 @@
                                 <button class="btn btn-success mt-3" type="submit" asp-page-handler="PlaceOrder" asp-route-singleProductId="@op.Product_id" name="orderType" value="single">
                                     Place Order
                                 </button>
+
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,68 @@
+﻿@page
+@model FarmCart.Pages.Supplier.MyOrdersModel
+@{
+}
+<head>
+    <title>Filters in Bootstrap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+                                   initial-scale=1">
+    <!--link of Bootstrap 4 css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- links of Bootstrap 4 JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+
+    </script>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="text-center">
+        <input type="text" class="form-control mb-3 " placeholder="Search Here" id="txtInputTable" style="width:30%;">
+        </div>
+        <table class="table">
+            <thead class="text-black" style="background-color:whitesmoke;">
+    <th>Order_NO</th>
+    <th>Customer Name</th>
+    <th>Product Name</th>
+    <th>Product Quantity</th>
+    <th>Product Price</th>
+    <th>Customer Phone</th>
+    <th>Customer Email</th> 
+    </thead>
+@{
+    foreach(var or in Model.ords)
+    {
+            <tbody id="tableDetails">
+            <tr>
+            <td>@or.item_ord_no</td>
+            <td>@or.CustName</td>
+            <td>@or.product_name</td>
+            <td>@or.product_quantity</td>
+            <td>@or.product_price</td>
+            <td>@or.CustPhone</td>
+            <td>@or.CustEmail</td>
+            </tr>
+            </tbody> 
+    }
+}
+</table>
+</body>
+        <script>
+            $(document).ready(function () {
+                $("#txtInputTable").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#tableDetails tr").filter(function () {
+                        $(this).toggle($(this).text()
+                            .toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+

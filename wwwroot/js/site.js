@@ -3,7 +3,10 @@
 
 // Write your JavaScript code.
 
-       
+
+
+
+
         function toggleAllProducts() {
             const selectAllCheckbox = document.getElementById('selectAll');
             const productCheckboxes = document.getElementsByClassName('product-checkbox');
@@ -53,4 +56,5 @@
 //        dropdownmenu.style.display = 'none';
 //    }
 //}
+
 
